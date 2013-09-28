@@ -1,5 +1,6 @@
 class Player {
   float x, y;
+  int currentAnim;
   Gif[] animation;
   public Player(PApplet gfx) {
     animation = new Gif[7];
@@ -8,45 +9,53 @@ class Player {
     for (int i = 0; i <7; i++) {
       animation[i] = new Gif(gfx, "gifs/player" + Integer.toString(i) + ".gif");
     }
+    animation[0].loop();
   }
   void draw(float r) {
-    int x =0;
+    int newAnim;
     if (r ==10) {
-      x =0;
-    } 
-    else if (r > ((1/8)*-1)*PI) {
-      if (r < 1/8*PI) {
-        x = 2;
-      } 
-      else if (r <= (3/8)*PI) {
-        x = 3;
-      } 
-      else if (r <= (5/8)*PI) {
-        x = 0;
-      } 
-      else if (r <= (7/8)*PI) {
-        x = 4;
-      } 
-      else {
-        x = 5;
-      }
-    } 
+      newAnim =0;
+    }
     else {
-      if (r >= -1*(3/8)*PI) {
-        x = 1;
+      r = degrees(r);
+      if (r > -22.5) {
+        if (r < 22.5) {
+          newAnim = 5;
+        } 
+        else if (r <= 67.5) {
+          newAnim= 6;
+        } 
+        else if (r <= 112.5) {
+          newAnim = 0;
+        } 
+        else if (r <= 157.5) {
+          newAnim = 1;
+        } 
+        else {
+          newAnim = 2;
+        }
       } 
-      else if (r >= -1*(5/8)*PI) {
-        x = 0;
-      } 
-      else if (r>= -1*(7/8)*PI) {
-        x = 6;
-      }
       else {
-        x = 5;
+        if (r >= -67.5) {
+          newAnim = 4;
+        } 
+        else if (r >= -112.5) {
+          newAnim = 0;
+        } 
+        else if (r>= -157.5) {
+          newAnim = 3;
+        }
+        else {
+          newAnim = 2;
+        }
       }
     }
-    animation[x].loop();
-    image(animation[x], this.x-35, this.y-35, 70.0, 70.0);
+    if (newAnim != currentAnim) {
+      animation[currentAnim].stop();
+      currentAnim = newAnim;
+      animation[currentAnim].loop();
+    }
+    image(animation[currentAnim], x-35, y-35, 70.0, 70.0);
   }
 }
 

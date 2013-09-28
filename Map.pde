@@ -24,7 +24,7 @@ class Map {
       s.update(velocity.x,velocity.y);
       s.draw(velocity.x,velocity.y);
     }
-    p.draw(velocity.heading());
+    p.draw((velocity.x != 0 || velocity.y != 0) ? velocity.heading() : 10.0);
     fill(255);
     line(mouseX, mouseY, p.x, p.y);
     
