@@ -10,7 +10,9 @@ public class Trapezoid extends Shape{
   
   boolean killMe(){
     map.toRemove.add(this);
-    
+    map.toAdd.add(new Triangle(gfx, 500, 300, player, map));
+    //map.toAdd.add(new Triangle(gfx, 600, 300, player, map));
+   // map.toAdd.add(new Triangle(gfx, 700, 300, player, map));
     return true;
   }
 
