@@ -123,6 +123,7 @@ public abstract class Shape {
     for (int i=0, j=numVertices-1; i < numVertices; j = i++) {
       if ( ((vertY[i]>py) != (vertY[j]>py)) && (px < (vertX[j]-vertX[i]) * (py-vertY[i]) / (vertY[j]-vertY[i]) + vertX[i]) ) {
         collision = !collision;
+        this.killMe();
       }
     }
     return collision;
@@ -133,7 +134,7 @@ public abstract class Shape {
    */
   PVector findPlayerVec(float x, float y) {
 
-    int speed = 2; //hastigheten for å følge etter player
+    int speed = 1; //hastigheten for å følge etter player
 
     float moveX = 0;
     float moveY = 0;
