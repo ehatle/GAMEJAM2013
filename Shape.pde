@@ -85,7 +85,13 @@ public abstract class Shape {
       fill(255, 0, 0);
     }
   }
-  // findAngle
+  // finner vinkel som må rotere for å nå player
+  findAngle(PVector playerPos){
+    float speed = 0.5; // hvor fort vinkelen skal endre seg
+    PVector closestCorner = findClosestCorner(playerPos);
+    float angle = PVector.angleBetween(closestCorner,playerPos);
+    return angle*speed;
+  }
   
   // finner punktet som er nærmest player
   void findClosestCorner(PVector playerPos){
