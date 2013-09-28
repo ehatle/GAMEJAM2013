@@ -22,6 +22,8 @@ public abstract class Shape {
 
   public Shape(PApplet gfx, float x, float y, Player player,int numVertices) {
     this.player = player;
+    
+    System.out.println(player);
     this.x = x;
     this.y = y;
     this.gifPath = "cube-copy.gif";
@@ -41,7 +43,6 @@ public abstract class Shape {
     vertY = new float[numVertices];
 
     corners = new PVector[numVertices];
-    System.out.println(corners);
   }
   public void draw(float x, float y) {
     image(animation, vertX[0], vertY[0], size, size);
@@ -107,13 +108,15 @@ public abstract class Shape {
     float moveX = 0;
     float moveY = 0;
      
+     /* får formen til å følge etter musa, for debugging
     float distanceX = mouseX-x;
     float distanceY = mouseY-y;
+    */
     
-    /*
+    System.out.println(player);
+    
     float distanceX = player.x-x;
     float distanceY = player.y-y;
-    */
     
     float distanceTotal = sqrt(distanceX*distanceX+distanceY*distanceY);
 
