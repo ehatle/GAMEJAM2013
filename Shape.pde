@@ -20,11 +20,10 @@ public abstract class Shape {
   float size = 100;
 
   Player player;
-  Map map;
 
-  public Shape(PApplet gfx, float x, float y, Player player, int numVertices, Map map) {
+  public Shape(PApplet gfx, float x, float y, Player player, int numVertices) {
     this.player = player;
-    this.map = map;
+
     this.x = x;
     this.y = y;
     this.gifPath = "cube-copy.gif";
@@ -81,12 +80,27 @@ public abstract class Shape {
     // if hit, change the fill color for the polygon
     if (pointPolygon(numVertices, vertX, vertY, mouseX, mouseY)) {
       fill(255);
-      
-        this.killMe();
     }
     else {
       fill(255, 0, 0);
     }
+  }
+  // findAngle
+  
+  // finner punktet som er nærmest player
+  void findClosestCorner(PVector playerPos){
+     PVector max = corners[0];
+     float maxD = playerPos.dist(new PVector(vertX[0],vertY[0]));
+     PVector newVec;
+     for (int i = 1; i < numVertices;i++){
+       newVec = new PVector(vertX[i],vertY[i]);
+       
+       float d = playerPos.dist(newVec);
+       if (d<maxD){
+         maxD = d;
+         max = corners[i];
+       }
+     }
   }
 
   /*
@@ -143,10 +157,5 @@ public abstract class Shape {
 
     return new PVector(moveX, moveY);
   }
-  boolean killMe(){
-    map.toRemove.add(this);
-    return true;
-  }
-  
 }
 
