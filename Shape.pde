@@ -2,6 +2,10 @@ public class Shape{
   float x,y;
   Player player;
   
+  int speed = 2; //hastigheten for å følge etter player
+  float turnRate = .3;  // bruker for å rotere, blir ikkje brukt
+  int agroRange = width; // range for å "finne" player
+  
   int numVertices = 3;                      // number of sides in polygon
   float[] vertX = new float[numVertices];   // array of x/y coordinates for polygon
   float[] vertY = new float[numVertices];
