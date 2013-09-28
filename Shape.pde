@@ -4,6 +4,7 @@ public abstract class Shape {
   Gif animation;
   String gifPath;
 
+  float cumulativeTR = 0;
   float turnRate = PI/80;  // bruker for å rotere, blir ikkje brukt
   int agroRange = width; // range for å "finne" player
 
@@ -20,9 +21,9 @@ public abstract class Shape {
 
   Player player;
 
-  public Shape(PApplet gfx, float x, float y, Player player,int numVertices) {
+  public Shape(PApplet gfx, float x, float y, Player player, int numVertices) {
     this.player = player;
-    
+
     this.x = x;
     this.y = y;
     this.gifPath = "cube-copy.gif";
@@ -34,8 +35,8 @@ public abstract class Shape {
     pos = new PVector(x, y);
     // setter startfart til 0
     velocity = new PVector(0, 0);
-    
-    
+
+
     this.numVertices = numVertices;
 
     vertX = new float[numVertices];   // array of x/y coordinates for polygon
@@ -44,7 +45,7 @@ public abstract class Shape {
     corners = new PVector[numVertices];
   }
   public void draw(float x, float y) {
-    image(animation, vertX[0], vertY[0], size, size);
+    imageMode(CENTER);
 
     // draw polygon
     beginShape();
@@ -52,6 +53,12 @@ public abstract class Shape {
       vertex(vertX[i], vertY[i]);
     }
     endShape(CLOSE);
+    pushMatrix();
+    translate(pos.x,pos.y);
+    cumulativeTR =  (cumulativeTR + turnRate)%TAU;
+    rotate(cumulativeTR);
+    image(animation,0,0, size, size);
+    popMatrix();
 
     // draw cursor
     fill(255);
@@ -59,7 +66,7 @@ public abstract class Shape {
   }
 
   public void update(float x, float y) {
-    velocity =  findPlayerVec(pos.x,pos.y);
+    velocity =  findPlayerVec(pos.x, pos.y);
     pos.add(new PVector(x, y));
     pos.add(velocity);
     for (int i = 0; i<numVertices;i++) {
@@ -105,16 +112,16 @@ public abstract class Shape {
 
     float moveX = 0;
     float moveY = 0;
-     
-     /* får formen til å følge etter musa, for debugging
-    float distanceX = mouseX-x;
-    float distanceY = mouseY-y;
-    */
-    
-    
+
+    /* får formen til å følge etter musa, for debugging
+     float distanceX = mouseX-x;
+     float distanceY = mouseY-y;
+     */
+
+
     float distanceX = player.x-x;
     float distanceY = player.y-y;
-    
+
     float distanceTotal = sqrt(distanceX*distanceX+distanceY*distanceY);
 
     if (distanceTotal <= agroRange) {
