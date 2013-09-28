@@ -1,10 +1,13 @@
 class Player {
   float x, y;
-  Gif animation;
+  Gif[] animation;
   public Player(PApplet gfx) {
+    animation = new Gif[7];
     this.x = width/2;
     this.y = height/2;
-    animation = new Gif(gfx, "player0.gif");
+    for (int i = 0; i <7; i++) {
+      animation[i] = new Gif(gfx, "gifs/player" + Integer.toString(i) + ".gif");
+    }
   }
   void draw(float r) {
     int x =0;
@@ -38,12 +41,12 @@ class Player {
       else if (r>= -1*(7/8)*PI) {
         x = 6;
       }
-      else{
+      else {
         x = 5;
       }
     }
-
-    image(animation, this.x-35, this.y-35, 70.0, 70.0);
+    animation[x].loop();
+    image(animation[x], this.x-35, this.y-35, 70.0, 70.0);
   }
 }
 
