@@ -8,6 +8,6 @@ class Player {
     animation.loop();
   }
   void draw(){
-    image(animation, x, y);
+    image(animation, x-35, y-35, 70,70);
   }
 }

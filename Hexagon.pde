@@ -1,7 +1,7 @@
 class Hexagon extends Shape{
   
-  Hexagon(float x, float y){
-    super(x,y);
+  Hexagon(PApplet gfx, float x, float y){
+    super(gfx, x,y);
   }
   
 }

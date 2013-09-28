@@ -1,5 +1,5 @@
 class Triangle extends Shape{
-  Triangle(float x,float y){
-    super(x,y);
+  Triangle(PApplet gfx, float x,float y){
+    super(gfx, x,y);
   }
 }

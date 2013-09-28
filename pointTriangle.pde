@@ -13,7 +13,7 @@ PVector v1;
 PVector v2;
 PVector v3;
 
-void setup() {
+/*void setup() {
   size(500,500);
   smooth();
   noStroke();
@@ -28,9 +28,9 @@ void setup() {
   y2 = 50;
   x3 = width/2;
   y3 = height-50;*/
-}
+//}*/
 
-void draw() {
+/*void draw() {
   
   // draw background and triangle
   background(0,150,75);
@@ -51,7 +51,7 @@ void draw() {
   //v1.rotate(0.01);
   v2.rotate(0.01);
   v3.rotate(0.01);
-}
+}*/
 
 /*
 POINT/TRIANGLE COLLISION FUNCTION
