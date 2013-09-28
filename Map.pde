@@ -6,8 +6,8 @@ class Map {
     shapes = new ArrayList<Shape>();
     this.x = 0;
     this.y = 0;
-    shapes.add(new Shape(gfx, 100, 100));
-    shapes.add(new Shape(gfx, 200, 300));
+    shapes.add(new Shape(gfx,100, 100,p));
+    shapes.add(new Shape(gfx,200, 300,p));
     p = new Player(gfx);
   }
   public Map(PApplet gfx, float x, float y) {
