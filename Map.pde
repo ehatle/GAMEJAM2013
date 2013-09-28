@@ -4,12 +4,15 @@ class Map {
   Player p;
   PVector velocity;
   public Map(PApplet gfx) {
+    velocity = new PVector(0.0,0.0);
     shapes = new ArrayList<Shape>();
     this.x = 0;
     this.y = 0;
     p = new Player(gfx);
-    shapes.add(new Shape(gfx,100, 100,p));
-    shapes.add(new Shape(gfx,200, 300,p));
+    shapes.add(new Square(gfx,100, 100,p));
+    shapes.add(new Triangle(gfx,200, 300,p));
+    shapes.add(new Trapezoid(gfx,500, 300,p));
+    shapes.add(new Triangle(gfx,800, 300,p));
   }
   public Map(PApplet gfx, float x, float y) {
     p = new Player(gfx);
@@ -18,6 +21,7 @@ class Map {
     this.y = y;
   }
   void update(float x, float y) {
+    println(velocity.x);
     velocity.x = x;
     velocity.y = y;
   }

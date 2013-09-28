@@ -7,7 +7,8 @@ class Player {
     animation = new Gif(gfx, "Shark.gif");
     animation.loop();
   }
-  void draw(){
+  void draw(float d){
+    
     image(animation, x-35, y-35, 70,70);
   }
 }
