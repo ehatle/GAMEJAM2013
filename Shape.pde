@@ -23,7 +23,7 @@ public class Shape{
   
   Player player;
   
-  public Shape(PApplet gfx, Player player, float x, float y){
+  public Shape(PApplet gfx, float x, float y, Player player){
 //=======
  
 //>>>>>>> b6baee56ad9171c3bb1f0992fb87270b82d190d3
