@@ -1,6 +1,6 @@
 public class Square extends Shape{
-  Square(PApplet gfx, float x,float y, Player player){
-    super(gfx, x,y, player,4);
+  Square(PApplet gfx, float x,float y, Player player, Map map){
+    super(gfx, x,y, player,4, map);
 
    float h = sqrt(size*size + (size/2)*(size/2));
    float f = (h/2 + h)/2;

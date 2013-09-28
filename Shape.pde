@@ -20,10 +20,11 @@ public abstract class Shape {
   float size = 100;
 
   Player player;
+  Map map;
 
-  public Shape(PApplet gfx, float x, float y, Player player, int numVertices) {
+  public Shape(PApplet gfx, float x, float y, Player player, int numVertices, Map map) {
     this.player = player;
-
+    this.map = map;
     this.x = x;
     this.y = y;
     this.gifPath = "cube-copy.gif";

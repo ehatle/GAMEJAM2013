@@ -6,10 +6,10 @@ class Map {
     velocity = new PVector(0.0,0.0);
     shapes = new ArrayList<Shape>();
     p = new Player(gfx);
-    shapes.add(new Triangle(gfx,200, 300,p));
-    shapes.add(new Trapezoid(gfx,500, 300,p));
-    shapes.add(new Hexagon(gfx,800, 300,p));
-    shapes.add(new Square(gfx,100, 100,p));
+    shapes.add(new Triangle(gfx,200, 300,p, this));
+    shapes.add(new Trapezoid(gfx,500, 300,p, this));
+    shapes.add(new Hexagon(gfx,800, 300,p, this));
+    shapes.add(new Square(gfx,100, 100,p, this));
   }
   public Map(PApplet gfx, float x, float y) {
     p = new Player(gfx);
