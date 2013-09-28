@@ -41,7 +41,7 @@ public class Shape{
     
   }
   public void draw(float x, float y){
-    image(animation, this.x + x, this.y + y, size, size);
+    image(animation, pos.x + x, pos.y + y, size, size);
   }
   
   /*
