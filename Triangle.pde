@@ -8,9 +8,17 @@ class Triangle extends Shape {
     corners[2] = new PVector(size/2, h/2);
     this.gifPath = "gifs/tria-copy.gif";
   }
-  
-  boolean killMe(){
+
+  boolean killMe() {
     map.toRemove.add(this);
+    player.score += 10;
+    println("Player score:" + player.score);
+    /*
+    int rand = (int)random(1, 100);
+     if(rand <= 5){
+     map.shapes.add(new Triangle(gfx,200, 300,player, map)); 
+     }
+     */
     return true;
   }
 }

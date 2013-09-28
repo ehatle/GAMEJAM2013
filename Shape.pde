@@ -20,10 +20,11 @@ public abstract class Shape {
   float size = 100;
 
   Player player;
+  Map map;
 
-  public Shape(PApplet gfx, float x, float y, Player player, int numVertices) {
+  public Shape(PApplet gfx, float x, float y, Player player, int numVertices, Map map) {
     this.player = player;
-
+    this.map = map;
     this.x = x;
     this.y = y;
     this.gifPath = "cube-copy.gif";
@@ -54,10 +55,10 @@ public abstract class Shape {
     }
     endShape(CLOSE);
     pushMatrix();
-    translate(pos.x,pos.y);
+    translate(pos.x, pos.y);
     cumulativeTR =  (cumulativeTR + turnRate)%TAU;
     rotate(cumulativeTR);
-    image(animation,0,0, size, size);
+    image(animation, 0, 0, size, size);
     popMatrix();
 
     // draw cursor
@@ -86,27 +87,27 @@ public abstract class Shape {
     }
   }
   // finner vinkel som må rotere for å nå player
-  findAngle(PVector playerPos){
+  findAngle(PVector playerPos) {
     float speed = 0.5; // hvor fort vinkelen skal endre seg
     PVector closestCorner = findClosestCorner(playerPos);
-    float angle = PVector.angleBetween(closestCorner,playerPos);
+    float angle = PVector.angleBetween(closestCorner, playerPos);
     return angle*speed;
   }
-  
+
   // finner punktet som er nærmest player
-  void findClosestCorner(PVector playerPos){
-     PVector max = corners[0];
-     float maxD = playerPos.dist(new PVector(vertX[0],vertY[0]));
-     PVector newVec;
-     for (int i = 1; i < numVertices;i++){
-       newVec = new PVector(vertX[i],vertY[i]);
-       
-       float d = playerPos.dist(newVec);
-       if (d<maxD){
-         maxD = d;
-         max = corners[i];
-       }
-     }
+  void findClosestCorner(PVector playerPos) {
+    PVector max = corners[0];
+    float maxD = playerPos.dist(new PVector(vertX[0], vertY[0]));
+    PVector newVec;
+    for (int i = 1; i < numVertices;i++) {
+      newVec = new PVector(vertX[i], vertY[i]);
+
+      float d = playerPos.dist(newVec);
+      if (d<maxD) {
+        maxD = d;
+        max = corners[i];
+      }
+    }
   }
 
   /*
@@ -162,6 +163,13 @@ public abstract class Shape {
     }
 
     return new PVector(moveX, moveY);
+  }
+
+  boolean killMe() {
+    map.toRemove.add(this);
+    player.score += 10;
+    println("Player score:" + player.score);
+    return true;
   }
 }
 
