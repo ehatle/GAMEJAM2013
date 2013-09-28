@@ -5,10 +5,10 @@ Map map;
 
 void setup() {
   size(800, 600);
+  frameRate(50);
   map = new Map(this);
 }
 void draw() {
-  frameRate(50);
   map.update(speedX, speedY);
   background(0);
   map.draw();

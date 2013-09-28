@@ -3,6 +3,7 @@ class Player {
   int score;
   int currentAnim;
   Gif[] animation;
+  PVector velocity;
   public Player(PApplet gfx) {
     animation = new Gif[7];
     score = 0;
@@ -12,6 +13,21 @@ class Player {
       animation[i] = new Gif(gfx, "gifs/player" + Integer.toString(i) + ".gif");
     }
     animation[0].loop();
+  }
+  void update(PVector v){
+    x+=v.x;
+    y+=v.y;
+    float easing = 0.05;
+    float target = width/2;
+    float d = target - x;
+    if(abs(d) > 1){
+      x += d*easing;
+    }
+    target = height/2;
+    d = target - y;
+    if(abs(d) > 1){
+      y += d*easing;
+    }
   }
   void draw(float r) {
     int newAnim;

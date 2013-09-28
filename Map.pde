@@ -4,7 +4,9 @@ class Map {
   ArrayList <Shape> toAdd;
   Player p;
   PVector velocity;
+  PApplet gfx;
   public Map(PApplet gfx) {
+    this.gfx = gfx;
     velocity = new PVector(0.0,0.0);
     shapes = new ArrayList<Shape>();
     toRemove = new ArrayList<Shape>();
@@ -35,11 +37,10 @@ class Map {
     for (Shape newShape : toAdd) {
       toAdd.add(newShape);
     }
-    
+    p.update(velocity);
     p.draw((velocity.x != 0 || velocity.y != 0) ? velocity.heading() : 10.0);
     fill(255);
     line(mouseX, mouseY, p.x, p.y);
-    
   }
 }
 
