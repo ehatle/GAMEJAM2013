@@ -25,7 +25,9 @@ class Map {
       s.draw(x, y);
     }
     p.draw();
-  line(mouseX, mouseY, p.x, p.y);
+    fill(255);
+    line(mouseX, mouseY, p.x, p.y);
+    
   }
 }
 

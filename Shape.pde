@@ -1,11 +1,11 @@
 public class Shape{
   float x,y;
-<<<<<<< HEAD
+//<<<<<<< HEAD
   PApplet gfx;
   Gif animation;
   String gifPath;
   public Shape(PApplet gfx, float x, float y){
-=======
+//=======
   Player player;
   
   int speed = 2; //hastigheten for å følge etter player
