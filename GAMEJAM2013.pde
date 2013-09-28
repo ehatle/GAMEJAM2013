@@ -12,6 +12,8 @@ void draw() {
   map.update(speedX, speedY);
   background(0);
   map.draw();
+  fill(255);
+  ellipse(width/2,height/2, 10, 10);
 }
 void keyPressed() {
   if (key == CODED) {
