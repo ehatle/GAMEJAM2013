@@ -7,11 +7,11 @@ public abstract class Shape {
   float turnRate = .3;  // bruker for å rotere, blir ikkje brukt
   int agroRange = width; // range for å "finne" player
 
-  int numVertices = 0;                      // number of sides in polygon
-  float[] vertX = new float[numVertices];   // array of x/y coordinates for polygon
-  float[] vertY = new float[numVertices];
+  int numVertices = 0; // number of sides in polygon
+  float[] vertX;   // array of x/y coordinates for polygon
+  float[] vertY;
 
-  PVector[] corners = new PVector[numVertices];
+  PVector[] corners ;
 
   PVector pos; // posisjon til midtpunkt
   PVector velocity; //fart
@@ -20,7 +20,7 @@ public abstract class Shape {
 
   Player player;
 
-  public Shape(PApplet gfx, float x, float y, Player player) {
+  public Shape(PApplet gfx, float x, float y, Player player,float numVertices) {
     this.player = player;
     this.x = x;
     this.y = y;
@@ -33,11 +33,18 @@ public abstract class Shape {
     // setter startposisjon til x,y
     pos = new PVector(x, y);
     // setter startfart til 0
+    
+    this.numVertices;
     velocity = new PVector(0, 0);
+
+    vertX = new float[numVertices];   // array of x/y coordinates for polygon
+    vertY = new float[numVertices];
+
+    corners = new PVector[numVertices];
   }
   public void draw(float x, float y) {
     image(animation, pos.x, pos.y, size, size);
-    
+
     fill(255, 0, 0);
     System.out.println("noe");
     // draw polygon
@@ -70,8 +77,6 @@ public abstract class Shape {
     else {
       fill(255, 0, 0);
     }
-
-
   }
 
   /*
