@@ -30,7 +30,7 @@ public class Line {
     if (denominator == 0) return null;
     //returns false if the lines are parallell
 
-      //  int first = (x1 * y2 - y1 * x2) * (x3 - x4) - ((x1 - x2) * (x3 * x4 - y3 * x4));
+    // int first = (x1 * y2 - y1 * x2) * (x3 - x4) - ((x1 - x2) * (x3 * x4 - y3 * x4));
     // int second = (x1*x2 - y1*x2) - ((y1-y2)*(x3*y4-y3*x4));
 
     int[] point = {

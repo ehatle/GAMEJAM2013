@@ -7,6 +7,5 @@ public class Shape{
   }
   public void draw(){
     //rect(x,y,100,100);
-    
   }
 }
