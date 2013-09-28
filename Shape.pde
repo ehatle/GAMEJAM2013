@@ -44,7 +44,7 @@ public abstract class Shape {
     System.out.println(corners);
   }
   public void draw(float x, float y) {
-    image(animation, pos.x, pos.y, size, size);
+    image(animation, vertX[0], vertY[0], size, size);
 
     System.out.println("noe");
     // draw polygon
