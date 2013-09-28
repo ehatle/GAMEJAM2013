@@ -10,7 +10,8 @@ Our contribution to the 2013 GameJam competition at Åpen Sone, 2013
  - Trapezoid  
  - Hectagon  
  - Star
-- Hit-detection  
+- ~Hit-detection~  
+- Collision handling
 - map handler  
  - move the map around instead of the ball  
 

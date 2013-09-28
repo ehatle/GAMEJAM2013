@@ -10,6 +10,7 @@ public class Trapezoid extends Shape{
   
   boolean killMe(){
     map.toRemove.add(this);
+    
     return true;
   }
 

@@ -1,12 +1,14 @@
 class Map {
   ArrayList <Shape> shapes;
   ArrayList <Shape> toRemove;
+  ArrayList <Shape> toAdd;
   Player p;
   PVector velocity;
   public Map(PApplet gfx) {
     velocity = new PVector(0.0,0.0);
     shapes = new ArrayList<Shape>();
     toRemove = new ArrayList<Shape>();
+    toAdd = new ArrayList<Shape>();
     p = new Player(gfx);
     shapes.add(new Triangle(gfx,200, 300,p, this));
     shapes.add(new Trapezoid(gfx,500, 300,p, this));
@@ -29,6 +31,11 @@ class Map {
     for (Shape rm : toRemove) {
       shapes.remove(rm);
     }
+    
+    for (Shape newShape : toAdd) {
+      toAdd.add(newShape);
+    }
+    
     p.draw((velocity.x != 0 || velocity.y != 0) ? velocity.heading() : 10.0);
     fill(255);
     line(mouseX, mouseY, p.x, p.y);
