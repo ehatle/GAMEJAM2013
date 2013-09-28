@@ -1,12 +1,9 @@
 public class Shape{
   float x,y;
-<<<<<<< HEAD
+//<<<<<<< HEAD
   PApplet gfx;
   Gif animation;
   String gifPath;
-  public Shape(PApplet gfx, float x, float y){
-=======
-  Player player;
   
   int speed = 2; //hastigheten for å følge etter player
   float turnRate = .3;  // bruker for å rotere, blir ikkje brukt
@@ -20,10 +17,17 @@ public class Shape{
 
   PVector[] corners = new PVector[numVertices];
 
-  PVector pos = new PVector(300,300);
+  PVector pos;
   
-  public Shape(float x, float y){
->>>>>>> b6baee56ad9171c3bb1f0992fb87270b82d190d3
+  float size = 100;
+  
+  Player player;
+  
+  public Shape(PApplet gfx, Player player, float x, float y){
+//=======
+ 
+//>>>>>>> b6baee56ad9171c3bb1f0992fb87270b82d190d3
+    this.player = player;
     this.x = x;
     this.y = y;
     this.gifPath = "cube-copy.gif";
@@ -31,9 +35,13 @@ public class Shape{
     animation = new Gif(gfx, gifPath);
     animation.loop();
     this.gifPath = "cube-copy.gif";
+    
+    // setter startposisjon til x,y
+    pos = new PVector(x,y);
+    
   }
   public void draw(float x, float y){
-    image(animation, this.x + x, this.y + y, 100, 100);
+    image(animation, this.x + x, this.y + y, size, size);
   }
   
   /*
