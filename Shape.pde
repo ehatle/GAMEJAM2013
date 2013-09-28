@@ -18,6 +18,8 @@ public abstract class Shape {
   PVector velocity; //fart
 
   float size = 100;
+  
+  boolean disable = false;
 
   Player player;
   Map map;
@@ -84,7 +86,12 @@ public abstract class Shape {
     // if hit, change the fill color for the polygon
     if (pointPolygon(numVertices, vertX, vertY, mouseX, mouseY)) {
       fill(255);
+<<<<<<< HEAD
       this.killMe();
+=======
+      if(!disable)
+       disable = this.killMe() ? true : false; 
+>>>>>>> c8169d02862eec59993644ade913c77c6b4a0b30
     }
     else {
       fill(255, 0, 0);
@@ -128,6 +135,10 @@ public abstract class Shape {
     for (int i=0, j=numVertices-1; i < numVertices; j = i++) {
       if ( ((vertY[i]>py) != (vertY[j]>py)) && (px < (vertX[j]-vertX[i]) * (py-vertY[i]) / (vertY[j]-vertY[i]) + vertX[i]) ) {
         collision = !collision;
+<<<<<<< HEAD
+=======
+        
+>>>>>>> c8169d02862eec59993644ade913c77c6b4a0b30
       }
     }
     return collision;
