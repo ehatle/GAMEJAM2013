@@ -33,7 +33,7 @@ class Map {
     }
     
     for (Shape newShape : toAdd) {
-      toAdd.add(newShape);
+      shapes.add(newShape);
     }
     
     p.draw((velocity.x != 0 || velocity.y != 0) ? velocity.heading() : 10.0);
