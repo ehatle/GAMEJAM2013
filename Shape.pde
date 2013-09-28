@@ -44,7 +44,7 @@ public abstract class Shape {
     corners = new PVector[numVertices];
   }
   public void draw(float x, float y) {
-    image(animation, vertX[0], vertY[0], size, size);
+    imageMode(CENTER);
 
     // draw polygon
     beginShape();
@@ -53,6 +53,8 @@ public abstract class Shape {
     }
     endShape(CLOSE);
 
+    image(animation, pos.x, pos.y, size, size);
+    
     // draw cursor
     fill(255);
     ellipse(mouseX, mouseY, 30, 30);
