@@ -5,10 +5,12 @@ Our contribution to the 2013 GameJam competition at Åpen Sone, 2013
 
 - Animation engine  
 - Graphics  
-1. Triangle  
-2. Square  
-3. Trapezoid  
-4. Hectagon  
-5. Star
-- Hit-detection
-- 
+ - Triangle  
+ - Square  
+ - Trapezoid  
+ - Hectagon  
+ - Star
+- Hit-detection  
+- map handler  
+ - move the map around instead of the ball  
+ 

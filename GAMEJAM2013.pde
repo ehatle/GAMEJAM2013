@@ -1,4 +1,6 @@
+import gifAnimation.*;
 import java.util.ArrayList;
+
 
 float ballX = 350.0;
 float ballY = 350.0;
