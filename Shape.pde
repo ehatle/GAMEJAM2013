@@ -70,6 +70,9 @@ public abstract class Shape {
     velocity =  findPlayerVec(pos.x, pos.y);
     pos.add(new PVector(x, y));
     pos.add(velocity);
+    
+    // rotering
+    turnRate = findAngle(new PVector(player.x, player.y));
     for (int i = 0; i<numVertices;i++) {
       corners[i].rotate(turnRate);
     }
@@ -88,16 +91,17 @@ public abstract class Shape {
   }
   // finner vinkel som må rotere for å nå player
   float findAngle(PVector playerPos) {
-    float speed = 0.5; // hvor fort vinkelen skal endre seg
-    PVector closestCorner = findClosestCorner(playerPos);
-    float angle = PVector.angleBetween(closestCorner, playerPos);
+    
+    float speed = 0.005; // hvor fort vinkelen skal endre seg
+    int c = findClosestCorner(playerPos);
+    float angle = PVector.angleBetween(corners[c], PVector.sub(playerPos, new PVector(vertX[c],vertY[c])));
     return angle*speed;
   }
 
-  // finner punktet som er nærmest player
-  PVector findClosestCorner(PVector playerPos) {
-    PVector max = corners[0];
-    float maxD = playerPos.dist(new PVector(vertX[0], vertY[0]));
+  // finner hjørnet som er nærmest player
+  int findClosestCorner(PVector playerPos) {
+    int max =  1;
+    float maxD = playerPos.dist(new PVector(vertX[max], vertY[max]));
     PVector newVec;
     for (int i = 1; i < numVertices;i++) {
       newVec = new PVector(vertX[i], vertY[i]);
@@ -105,7 +109,7 @@ public abstract class Shape {
       float d = playerPos.dist(newVec);
       if (d<maxD) {
         maxD = d;
-        max = corners[i];
+        max = i;
       }
     }
     return max;
