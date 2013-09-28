@@ -111,7 +111,6 @@ public abstract class Shape {
     float distanceY = mouseY-y;
     */
     
-    System.out.println(player);
     
     float distanceX = player.x-x;
     float distanceY = player.y-y;
