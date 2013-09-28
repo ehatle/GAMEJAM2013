@@ -11,5 +11,10 @@ public class Square extends Shape{
     corners[2] = new PVector(f,h/2);
     corners[3] = new PVector(-g/2,h/2);
   }
+  
+ boolean killMe(){
+    map.toRemove.add(this);
+    return true;
+  }
 
 }

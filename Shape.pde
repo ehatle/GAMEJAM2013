@@ -81,6 +81,8 @@ public abstract class Shape {
     // if hit, change the fill color for the polygon
     if (pointPolygon(numVertices, vertX, vertY, mouseX, mouseY)) {
       fill(255);
+      
+        this.killMe();
     }
     else {
       fill(255, 0, 0);
@@ -141,5 +143,10 @@ public abstract class Shape {
 
     return new PVector(moveX, moveY);
   }
+  boolean killMe(){
+    map.toRemove.add(this);
+    return true;
+  }
+  
 }
 

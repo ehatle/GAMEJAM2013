@@ -7,5 +7,10 @@ public class Trapezoid extends Shape{
    corners[3] = new PVector(-size,h/2);
    corners[2] = new PVector(size,h/2);
   }
+  
+  boolean killMe(){
+    map.toRemove.add(this);
+    return true;
+  }
 
 }

@@ -10,5 +10,10 @@ class Hexagon extends Shape {
     corners[4] = new PVector(-size/2, h);
     corners[5] = new PVector(-size, 0);
   }
+  
+  boolean killMe(){
+    map.toRemove.add(this);
+    return true;
+  }
 }
 
