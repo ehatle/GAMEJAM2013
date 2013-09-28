@@ -24,14 +24,13 @@ public abstract class Shape {
   Player player;
   Map map;
 
-  public Shape(PApplet gfx, float x, float y, Player player, int numVertices, Map map) {
+  public Shape(PApplet gfx, float x, float y, Player player, int numVertices, Map map, Gif animation) {
     this.player = player;
     this.map = map;
     this.x = x;
     this.y = y;
     this.gfx = gfx;
-    animation = new Gif(gfx, gifPath);
-    animation.loop();
+    this.animation = animation;
 
     // setter startposisjon til x,y
     pos = new PVector(x, y);
@@ -71,7 +70,7 @@ public abstract class Shape {
     velocity =  findPlayerVec(pos.x, pos.y);
     pos.add(new PVector(x, y));
     pos.add(velocity);
-
+    
     // rotering
     turnRate = findAngle(new PVector(player.x, player.y));
     for (int i = 0; i<numVertices;i++) {
@@ -93,10 +92,10 @@ public abstract class Shape {
   }
   // finner vinkel som må rotere for å nå player
   float findAngle(PVector playerPos) {
-
+    
     float speed = 0.005; // hvor fort vinkelen skal endre seg
     int c = findClosestCorner(playerPos);
-    float angle = PVector.angleBetween(corners[c], PVector.sub(playerPos, new PVector(vertX[c], vertY[c])));
+    float angle = PVector.angleBetween(corners[c], PVector.sub(playerPos, new PVector(vertX[c],vertY[c])));
     return angle*speed;
   }
 
