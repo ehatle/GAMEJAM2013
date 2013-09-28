@@ -1,10 +1,6 @@
 import gifAnimation.*;
 import java.util.ArrayList;
-
-float ballX = 350.0;
-float ballY = 350.0;
 float speedX, speedY;
-float speed = 20.0;
 Map map;
 
 void setup(){
@@ -14,7 +10,7 @@ void setup(){
 void draw(){
   frameRate(50);
   map.update(speedX, speedY);
-  background(170);
+  background(0);
   map.draw();
 }
 void keyPressed(){

@@ -7,6 +7,7 @@ public class Line {
     this.y2 = y2;
   }
   void draw() {
+    fill(255);
     line(x1, y1, x2, y2);
   }
   int[] point1() {
