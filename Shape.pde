@@ -2,6 +2,14 @@ public class Shape{
   float x,y;
   Player player;
   
+  int numVertices = 3;                      // number of sides in polygon
+  float[] vertX = new float[numVertices];   // array of x/y coordinates for polygon
+  float[] vertY = new float[numVertices];
+
+  PVector[] corners = new PVector[numVertices];
+
+  PVector pos = new PVector(300,300);
+  
   public Shape(float x, float y){
     this.x = x;
     this.y = y;
@@ -31,7 +39,7 @@ public class Shape{
     
     float totalmove = sqrt(moveX*moveX+moveY*moveY);
       
-     moveX = speed*moveX/totalmove;
+    moveX = speed*moveX/totalmove;
     moveY = speed*moveY/totalmove;
     
     
