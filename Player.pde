@@ -1,10 +1,13 @@
 class Player {
   float x,y;
-  public Player(){
+  Gif animation;
+  public Player(PApplet gfx){
     this.x = width/2;
     this.y = height/2;
+    animation = new Gif(gfx, "Shark.gif");
+    animation.loop();
   }
-  void draw(int x,int y){
-    ellipse(this.x + x,this.y + y);
+  void draw(){
+    image(animation, x, y);
   }
 }
