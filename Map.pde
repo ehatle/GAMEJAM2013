@@ -2,14 +2,16 @@ class Map {
   ArrayList <Shape> shapes;
   float x, y;
   Player p;
-  public Map() {
+  public Map(PApplet gfx) {
     shapes = new ArrayList<Shape>();
     this.x = 0;
     this.y = 0;
     shapes.add(new Shape(100, 100));
     shapes.add(new Shape(200, 300));
+    p = new Player(gfx);
   }
-  public Map(float x, float y) {
+  public Map(PApplet gfx, float x, float y) {
+    p = new Player(gfx);
     shapes = new ArrayList<Shape>();
     this.x = x;
     this.y = y;
@@ -22,7 +24,8 @@ class Map {
     for (Shape s : shapes) {
       s.draw(x, y);
     }
-    p.draw(x, y);
+    p.draw();
+  line(mouseX, mouseY, p.x, p.y);
   }
 }
 

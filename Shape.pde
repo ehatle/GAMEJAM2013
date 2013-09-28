@@ -5,7 +5,7 @@ public class Shape{
     this.x = x;
     this.y = y;
   }
-  public void draw(){
-    //rect(x,y,100,100);
+  public void draw(float x, float y){
+    rect(this.x + x,this.y + y,100,100);
   }
 }
