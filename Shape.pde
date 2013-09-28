@@ -23,7 +23,6 @@ public abstract class Shape {
   public Shape(PApplet gfx, float x, float y, Player player,int numVertices) {
     this.player = player;
     
-    System.out.println(player);
     this.x = x;
     this.y = y;
     this.gifPath = "cube-copy.gif";
@@ -47,7 +46,6 @@ public abstract class Shape {
   public void draw(float x, float y) {
     image(animation, vertX[0], vertY[0], size, size);
 
-    System.out.println("noe");
     // draw polygon
     beginShape();
     for (int i=0; i<numVertices; i++) {
@@ -113,7 +111,6 @@ public abstract class Shape {
     float distanceY = mouseY-y;
     */
     
-    System.out.println(player);
     
     float distanceX = player.x-x;
     float distanceY = player.y-y;
