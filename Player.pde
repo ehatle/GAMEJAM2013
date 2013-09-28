@@ -29,9 +29,17 @@ class Player {
       }
     } 
     else {
-      if (r <= -1*(3/8)*PI) {
+      if (r >= -1*(3/8)*PI) {
+        x = 1;
       } 
-      else if (r <= -1*(5/8)*PI) {
+      else if (r >= -1*(5/8)*PI) {
+        x = 0;
+      } 
+      else if (r>= -1*(7/8)*PI) {
+        x = 6;
+      }
+      else{
+        x = 5;
       }
     }
 
