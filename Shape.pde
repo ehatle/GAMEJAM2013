@@ -87,7 +87,7 @@ public abstract class Shape {
     }
   }
   // finner vinkel som må rotere for å nå player
-  findAngle(PVector playerPos) {
+  float findAngle(PVector playerPos) {
     float speed = 0.5; // hvor fort vinkelen skal endre seg
     PVector closestCorner = findClosestCorner(playerPos);
     float angle = PVector.angleBetween(closestCorner, playerPos);
@@ -95,7 +95,7 @@ public abstract class Shape {
   }
 
   // finner punktet som er nærmest player
-  void findClosestCorner(PVector playerPos) {
+  PVector findClosestCorner(PVector playerPos) {
     PVector max = corners[0];
     float maxD = playerPos.dist(new PVector(vertX[0], vertY[0]));
     PVector newVec;
@@ -108,6 +108,7 @@ public abstract class Shape {
         max = corners[i];
       }
     }
+    return max;
   }
 
   /*
