@@ -21,22 +21,22 @@ public class Line {
     };
     return p;
   }
-  public int[] lineIntersection(Line l) {
+  public PVector lineIntersection(Line l) {
     return lineIntersection(x1, y1, x2, y2, l.x1, l.y1, l.x2, l.y2);
   }
-  public int[] lineIntersection(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4) {
+  public PVector lineIntersection(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4) {
     //returns intersection between two lines (defined by x1,y1,x2,y2 and x3,y3,x4,y4)
     int denominator = ((x1-x2) * (y3-y4)) - ((y1-y2) * (x3-x4));
     if (denominator == 0) return null;
     //returns false if the lines are parallell
 
-      //  int first = (x1 * y2 - y1 * x2) * (x3 - x4) - ((x1 - x2) * (x3 * x4 - y3 * x4));
+    //  int first = (x1 * y2 - y1 * x2) * (x3 - x4) - ((x1 - x2) * (x3 * x4 - y3 * x4));
     // int second = (x1*x2 - y1*x2) - ((y1-y2)*(x3*y4-y3*x4));
 
-    int[] point = {
+    PVector point = new PVector(
       //first/denominator, second/denominator
       ((x1 * y2 - y1 * x2) * (x3 - x4) - ((x1 - x2) * (x3 * x4 - y3 * x4)))/denominator, ((x1*x2 - y1*x2) - ((y1-y2)*(x3*y4-y3*x4)))/denominator
-    };
+    );
     return point;
   }
 }

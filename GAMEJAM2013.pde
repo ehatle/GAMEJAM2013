@@ -1,29 +1,22 @@
 import gifAnimation.*;
 import java.util.ArrayList;
 
-
 float ballX = 350.0;
 float ballY = 350.0;
 float speedX, speedY;
 float speed = 20.0;
-ArrayList <Shape> shapes;
+Map map;
 
 void setup(){
   size(800, 600);
-  shapes = new ArrayList<Shape>();
-  shapes.add(new Shape(100,100));
-  shapes.add(new Shape(200,300));
+  map = new Map();
 }
 void draw(){
-  ballX += speedX;
-  ballY += speedY;
+  map.update(speedX, speedY);
   background(170);
   
   ellipse(ballX, ballY, 50, 50);
   line(mouseX, mouseY, ballX, ballY);
-  for (Shape s : shapes){
-    s.draw();
-  }
 }
 void keyPressed(){
   if(keyCode == LEFT){
