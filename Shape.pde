@@ -24,15 +24,13 @@ public abstract class Shape {
   Player player;
   Map map;
 
-  public Shape(PApplet gfx, float x, float y, Player player, int numVertices, Map map) {
+  public Shape(PApplet gfx, float x, float y, Player player, int numVertices, Map map, Gif animation) {
     this.player = player;
     this.map = map;
     this.x = x;
     this.y = y;
-    this.gifPath = "cube-copy.gif";
     this.gfx = gfx;
-    animation = new Gif(gfx, gifPath);
-    animation.loop();
+    this.animation = animation;
 
     // setter startposisjon til x,y
     pos = new PVector(x, y);
@@ -72,7 +70,7 @@ public abstract class Shape {
     velocity =  findPlayerVec(pos.x, pos.y);
     pos.add(new PVector(x, y));
     pos.add(velocity);
-
+    
     // rotering
     turnRate = findAngle(new PVector(player.x, player.y));
     for (int i = 0; i<numVertices;i++) {
@@ -86,12 +84,8 @@ public abstract class Shape {
     // if hit, change the fill color for the polygon
     if (pointPolygon(numVertices, vertX, vertY, mouseX, mouseY)) {
       fill(255);
-<<<<<<< HEAD
-      this.killMe();
-=======
       if(!disable)
        disable = this.killMe() ? true : false; 
->>>>>>> c8169d02862eec59993644ade913c77c6b4a0b30
     }
     else {
       fill(255, 0, 0);
@@ -99,10 +93,10 @@ public abstract class Shape {
   }
   // finner vinkel som må rotere for å nå player
   float findAngle(PVector playerPos) {
-
+    
     float speed = 0.005; // hvor fort vinkelen skal endre seg
     int c = findClosestCorner(playerPos);
-    float angle = PVector.angleBetween(corners[c], PVector.sub(playerPos, new PVector(vertX[c], vertY[c])));
+    float angle = PVector.angleBetween(corners[c], PVector.sub(playerPos, new PVector(vertX[c],vertY[c])));
     return angle*speed;
   }
 
@@ -135,10 +129,7 @@ public abstract class Shape {
     for (int i=0, j=numVertices-1; i < numVertices; j = i++) {
       if ( ((vertY[i]>py) != (vertY[j]>py)) && (px < (vertX[j]-vertX[i]) * (py-vertY[i]) / (vertY[j]-vertY[i]) + vertX[i]) ) {
         collision = !collision;
-<<<<<<< HEAD
-=======
         
->>>>>>> c8169d02862eec59993644ade913c77c6b4a0b30
       }
     }
     return collision;
@@ -180,25 +171,6 @@ public abstract class Shape {
     }
 
     return new PVector(moveX, moveY);
-  }
-/*  PVector polygonIntersection() {
-    PVector [] points = new PVector[corners.length];
-    for (int i = 0; i< corners.length; i++) {
-      int j = (i+1>=corners.length) ? 0 : i+1;
-      points[i] = lineIntersection(corners[i].x, corners[i].x, corners[j].x, corners[j].x);
-    }
-  }*/
-  PVector lineIntersection(int x1, int y1, int x2, int y2, int x3, int y3, int x4, int y4) {
-    //returns intersection between two lines (defined by x1,y1,x2,y2 and x3,y3,x4,y4)
-    int denominator = ((x1-x2) * (y3-y4)) - ((y1-y2) * (x3-x4));
-    if (denominator == 0) return null;
-    //returns null if the lines are parallell
-
-      PVector point = new PVector(
-    //first/denominator, second/denominator
-    ((x1 * y2 - y1 * x2) * (x3 - x4) - ((x1 - x2) * (x3 * x4 - y3 * x4)))/denominator, ((x1*x2 - y1*x2) - ((y1-y2)*(x3*y4-y3*x4)))/denominator
-      );
-    return point;
   }
 
   boolean killMe() {
