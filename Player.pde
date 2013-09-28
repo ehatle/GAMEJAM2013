@@ -1,9 +1,11 @@
 class Player {
   float x, y;
+  int score;
   int currentAnim;
   Gif[] animation;
   public Player(PApplet gfx) {
     animation = new Gif[7];
+    score = 0;
     this.x = width/2;
     this.y = height/2;
     for (int i = 0; i <7; i++) {
