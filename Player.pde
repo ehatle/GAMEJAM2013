@@ -9,9 +9,7 @@ class Player {
     score = 0;
     this.x = width/2;
     this.y = height/2;
-    for (int i = 0; i <7; i++) {
-      animation[i] = new Gif(gfx, "gifs/player" + Integer.toString(i) + ".gif");
-    }
+    for (int i = 0; i <7; i++) animation[i] = new Gif(gfx, "gifs/player" + Integer.toString(i) + ".gif");
     animation[0].loop();
   }
   void update(PVector v){

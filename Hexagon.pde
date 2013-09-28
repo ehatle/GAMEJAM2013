@@ -1,5 +1,4 @@
 class Hexagon extends Shape {
-
   Hexagon(PApplet gfx, float x, float y, Player player, Map map) {
     super(gfx, x, y, player, 6, map);
     float h = sqrt(size*size + (size/2)*(size/2));
