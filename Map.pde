@@ -26,14 +26,10 @@ class Map {
       s.update(velocity.x,velocity.y);
       s.draw(velocity.x,velocity.y);
     }
-<<<<<<< HEAD
-    p.draw((velocity.x != 0 || velocity.y != 0) ? velocity.heading() : 10.0);
-=======
     for (Shape rm : toRemove) {
       shapes.remove(rm);
     }
-    p.draw(velocity.heading());
->>>>>>> 946fd724b8f7ec7d32152b6552095755941bd781
+    p.draw((velocity.x != 0 || velocity.y != 0) ? velocity.heading() : 10.0);
     fill(255);
     line(mouseX, mouseY, p.x, p.y);
     
