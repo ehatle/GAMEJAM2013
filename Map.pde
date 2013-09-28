@@ -4,18 +4,34 @@ class Map {
   ArrayList <Shape> toAdd;
   Player p;
   PVector velocity;
+  
   PApplet gfx;
+  Gif[] animation;
+  String gifPath;
+  
   public Map(PApplet gfx) {
-    this.gfx = gfx;
     velocity = new PVector(0.0,0.0);
     shapes = new ArrayList<Shape>();
     toRemove = new ArrayList<Shape>();
     toAdd = new ArrayList<Shape>();
     p = new Player(gfx);
-    shapes.add(new Triangle(gfx,200, 300,p, this));
-    shapes.add(new Trapezoid(gfx,500, 300,p, this));
-    shapes.add(new Hexagon(gfx,800, 300,p, this));
-    shapes.add(new Square(gfx,100, 100,p, this));
+    
+    Gif[] animation = new Gif[4];
+    
+
+    gifPath = "cube-copy.gif";
+    
+    for (int i= 0; i < 4; i++){
+      animation[i] = new Gif(gfx, gifPath);
+      animation[i].loop();
+    }
+    
+    
+    
+    shapes.add(new Triangle(gfx,200, 300,p, this,animation[0]));
+    shapes.add(new Trapezoid(gfx,500, 300,p, this,animation[2]));
+    shapes.add(new Hexagon(gfx,800, 300,p, this,animation[3]));
+    shapes.add(new Square(gfx,100, 100,p, this,animation[1]));
   }
   public Map(PApplet gfx, float x, float y) {
     p = new Player(gfx);
@@ -37,10 +53,11 @@ class Map {
     for (Shape newShape : toAdd) {
       shapes.add(newShape);
     }
-    p.update(velocity);
+    
     p.draw((velocity.x != 0 || velocity.y != 0) ? velocity.heading() : 10.0);
     fill(255);
     line(mouseX, mouseY, p.x, p.y);
+    
   }
 }
 
