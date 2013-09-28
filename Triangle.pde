@@ -6,6 +6,7 @@ class Triangle extends Shape {
     corners[0] = new PVector(0, -h/2);
     corners[1] = new PVector(-size/2, h/2);
     corners[2] = new PVector(size/2, h/2);
+    this.gifPath = "gifs/tria-copy.gif";
   }
   
   boolean killMe(){
