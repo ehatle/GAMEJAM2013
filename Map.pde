@@ -40,17 +40,20 @@ class Map {
     velocity.y = y;
   }
   void draw() {
-    for (Shape s : shapes) {
-      s.update(velocity.x, velocity.y);
-      s.draw(velocity.x, velocity.y);
+            
+    for (Shape newShape : toAdd) {
+      shapes.add(newShape);
     }
     for (Shape rm : toRemove) {
       shapes.remove(rm);
     }
-
-    for (Shape newShape : toAdd) {
-      shapes.add(newShape);
+    
+    for (Shape s : shapes) {
+      s.update(velocity.x, velocity.y);
+      s.draw(velocity.x, velocity.y);
     }
+
+
     fill(255);
     text("Score: " + p.score, 10, 36); //viser scoren
     p.update(velocity);
