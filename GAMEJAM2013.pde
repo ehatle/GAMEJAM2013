@@ -4,7 +4,7 @@ float speedX, speedY;
 Map map;
 
 void setup() {
-  size(800, 600);
+  size(1080, 720);
   frameRate(50);
   map = new Map(this);
   textSize(32);

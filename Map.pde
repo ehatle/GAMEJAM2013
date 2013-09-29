@@ -40,20 +40,30 @@ class Map {
     velocity.y = y;
   }
   void draw() {
+    p.update(velocity);
     for (Shape s : shapes) {
       s.update(velocity.x, velocity.y);
+      if(s.hit(p.x,p.y,p.size)){
+        s.killMe();
+        PVector[] points = s.polygonIntersection(p);
+        for(int i = 0, int j = s.vertX.length-1; i< s.vertX.length; j = i++){
+          if(s.vertX[i] - p.x < p.size){
+            if(s.vertY[i] - p.y < p.size)p.killMe();
+          } else {
+            
+          }
+        }
+      }
       s.draw(velocity.x, velocity.y);
     }
     for (Shape rm : toRemove) {
       shapes.remove(rm);
     }
-
     for (Shape newShape : toAdd) {
       shapes.add(newShape);
     }
     fill(255);
     text("Score: " + p.score, 10, 36); //viser scoren
-    p.update(velocity);
     p.draw((velocity.x != 0 || velocity.y != 0) ? velocity.heading() : 10.0);
     fill(255);
     line(mouseX, mouseY, p.x, p.y);

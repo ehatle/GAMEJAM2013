@@ -28,6 +28,8 @@ class Player {
       y += d*easing;
     }
   }
+  void killMe(){
+  }
   void draw(float r) {
     int newAnim;
     if (r ==10) {

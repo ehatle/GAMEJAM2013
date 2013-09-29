@@ -86,14 +86,6 @@ public abstract class Shape {
       vertX[i] = v.x;
       vertY[i] = v.y;
     }
-    // if hit, change the fill color for the polygon
-    if (hit(numVertices, vertX, vertY, player.x, player.y, player.size)) {
-      fill(255);
-      if (!disable) disable = this.killMe() ? true : false;
-    }
-    else {
-      fill(255, 0, 0);
-    }
   }
   // finner vinkel som må rotere for å nå player
   float findAngle(PVector playerPos) {
@@ -128,7 +120,7 @@ public abstract class Shape {
    + float array x and y coordinates for vertices
    + x/y coordinates for point
    */
-  boolean hit(int numVertices, float[] vertX, float[] vertY, float px, float py, float psize) {
+  boolean hit(float px, float py, float psize) {
     boolean collision = false;
     for (int i=0, j=vertX.length-1; i < vertX.length; j = i++) {
       if (((vertY[i]>py) != (vertY[j]>py))) {
@@ -190,6 +182,8 @@ public abstract class Shape {
     return points;
   }
   PVector lineIntersection(float x1, float y1, float x2, float y2, float x3, float y3, float x4, float y4) {
+    line(x1,y1,x2,y2);
+    line(x3,y3,x4,y4);
     //returns intersection between two lines (defined by x1,y1,x2,y2 and x3,y3,x4,y4)
     float denominator = ((x1-x2) * (y3-y4)) - ((y1-y2) * (x3-x4));
     if (denominator == 0) return null;
@@ -214,7 +208,5 @@ public abstract class Shape {
   float findR(int n,float a){
     return 0.5*a*(1.0/sin(PI/n));
   }
-  
- 
 }
 
