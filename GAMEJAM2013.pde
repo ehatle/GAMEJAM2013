@@ -8,8 +8,8 @@ boolean startGame;
 void setup() {
   size(1280, 720);
   frameRate(50);
-  startPic = loadImage("start.jpg");
-  startGame = true; //skift til false for å teste startskjermen
+  startPic = loadImage("images/start.jpg");
+  startGame = false; //skift til false for å teste startskjermen
   map = new Map(this);
   textSize(32);
 }
