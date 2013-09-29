@@ -62,8 +62,6 @@ public abstract class Shape {
     image(animation, 0, -14, size+1, size+1);
     popMatrix();
 
-
-
     // draw cursor
     fill(255);
     ellipse(mouseX, mouseY, 30, 30);
