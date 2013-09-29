@@ -92,7 +92,6 @@ class Player {
   PVector[] generateHitPoints(int n){
     PVector[] h = new PVector[n];
     float r = TAU/n;
-    PVector start = new PVector(0,size/2);
     for (int i = 0; i < n; i++){
        h[i] = new PVector(0,size/2);
        h[i].rotate(r*i);
