@@ -10,6 +10,8 @@ class Map {
   Gif[] animation;
   //gifPath;
 
+  int counter = 0;
+  
   public Map(PApplet gfx) {
     velocity = new PVector(0.0, 0.0);
     shapes = new ArrayList<Shape>();
@@ -40,6 +42,11 @@ class Map {
     velocity.y = y;
   }
   void draw() {
+    if ((counter%1000)==0){
+      spawn();
+    }
+    counter ++;
+    
     p.velocity = velocity;
     p.update();
     for (Shape s : shapes) {
@@ -79,7 +86,13 @@ class Map {
     line(mouseX, mouseY, p.x, p.y);
   }
 
-  void spawn(float a, float b) {
+  void spawn() {
+    PVector place = new PVector(0,width/2);
+    place.rotate(random(1.0)*TAU);
+    
+    float a = place.x + p.x;
+    float b = place.y + p.y;
+    
     int max = 3;
     int min = 0;
     Random rand = new Random();
