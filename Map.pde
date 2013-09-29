@@ -16,10 +16,10 @@ class Map {
     toAdd = new ArrayList<Shape>();
     p = new Player(gfx);
     
-    Gif[] animation = new Gif[4];
+    animation = new Gif[4];
     String[] gifPath = {
       "gifs/tria-border.gif", 
-      "gifs/rect.gif", 
+      "gifs/rect-modified.gif", 
       "gifs/cube-copy.gif", 
       "gifs/cube-copy.gif"
     };
@@ -33,6 +33,7 @@ class Map {
     shapes.add(new Trapezoid(gfx, 500, 300, p, this, animation[2]));
     shapes.add(new Hexagon(gfx, 800, 300, p, this, animation[3]));
     shapes.add(new Square(gfx, 100, 100, p, this, animation[1]));
+     
   }
   void update(float x, float y) {
     velocity.x = x;
@@ -50,6 +51,8 @@ class Map {
     for (Shape newShape : toAdd) {
       shapes.add(newShape);
     }
+    fill(255);
+    text("Score: " + p.score, 10, 36); //viser scoren
     p.update(velocity);
     p.draw((velocity.x != 0 || velocity.y != 0) ? velocity.heading() : 10.0);
     fill(255);

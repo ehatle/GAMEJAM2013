@@ -16,6 +16,7 @@ class Hexagon extends Shape {
   
   boolean killMe(){
     map.toRemove.add(this);
+    player.score += 10;
     return true;
   }
 }
