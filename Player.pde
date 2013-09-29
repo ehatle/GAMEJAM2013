@@ -15,7 +15,7 @@ class Player {
     this.y = height/2;
     for (int i = 0; i <7; i++) animation[i] = new Gif(gfx, "gifs/player" + Integer.toString(i) + ".gif");
     animation[0].loop();
-    this.size = 100;
+    this.size = 50;
     
     hitPoints = generateHitPoints(8);
   }
@@ -78,7 +78,7 @@ class Player {
       currentAnim = newAnim;
       animation[currentAnim].loop();
     }
-    image(animation[currentAnim], x, y, size, size);
+    image(animation[currentAnim], x, y, size*2, size*2);
     
     stroke(0,255,0);
     strokeWeight(4);
