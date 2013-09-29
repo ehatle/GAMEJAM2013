@@ -39,7 +39,7 @@ class Map {
     velocity.y = y;
   }
   void draw() {
-    if ((counter%100)==0){
+    if ((counter%10)==0){
       spawn();
     }
     counter ++;
