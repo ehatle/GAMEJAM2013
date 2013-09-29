@@ -2,6 +2,9 @@ class Hexagon extends Shape {
 
   Hexagon(PApplet gfx, float x,float y, Player player, Map map, Gif animation) {
     super(gfx, x, y, player, 6, map,animation);
+    
+    gifSize = size*2;
+    
     float r = findr(6,size);
     float R = findR(6,size);
     

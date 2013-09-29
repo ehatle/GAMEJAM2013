@@ -1,6 +1,9 @@
 public class Trapezoid extends Shape {
   Trapezoid(PApplet gfx, float x, float y, Player player, Map map, Gif animation) {
     super(gfx, x, y, player, 4, map, animation);
+    gifSize = size*2;
+    
+    gifOffset.set(0,-14);
     float h = sqrt(size*size + (size/2)*(size/2));
    
     float r = findr(6,size);
