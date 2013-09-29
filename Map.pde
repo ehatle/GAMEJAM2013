@@ -15,7 +15,7 @@ class Map {
     toRemove = new ArrayList<Shape>();
     toAdd = new ArrayList<Shape>();
     p = new Player(gfx);
-    
+
     animation = new Gif[4];
     String[] gifPath = {
       "gifs/tria-border.gif", 
@@ -23,7 +23,7 @@ class Map {
       "gifs/cube-copy.gif", 
       "gifs/cube-copy.gif"
     };
-    
+
     for (int i= 0; i < 4; i++) {
       println(gifPath[i]);
       animation[i] = new Gif(gfx, gifPath[i]);
@@ -33,24 +33,28 @@ class Map {
     shapes.add(new Trapezoid(gfx, 500, 300, p, this, animation[2]));
     shapes.add(new Hexagon(gfx, 800, 300, p, this, animation[3]));
     shapes.add(new Square(gfx, 100, 100, p, this, animation[1]));
-     
   }
   void update(float x, float y) {
     velocity.x = x;
     velocity.y = y;
   }
   void draw() {
-    p.update(velocity);
+    p.velocity = velocity;
+    p.update();
     for (Shape s : shapes) {
       s.update(velocity.x, velocity.y);
-      if(s.hit(p.x,p.y,p.size)){
-        s.killMe();
-        PVector[] points = s.polygonIntersection(p);
-        for(int i = 0, int j = s.vertX.length-1; i< s.vertX.length; j = i++){
-          if(s.vertX[i] - p.x < p.size){
-            if(s.vertY[i] - p.y < p.size)p.killMe();
-          } else {
-            
+      for (PVector v : p.hitPoints) {
+        if (s.hit(v.x+p.x, v.y+p.y, p.size)) {
+          //s.killMe();
+          PVector[] points = s.polygonIntersection(p);
+          int j = s.vertX.length-1; 
+          for (int i = 0;i< s.vertX.length; i++) {
+            if (s.vertX[i] - p.x < p.size) {
+              if (s.vertY[i] - p.y < p.size)p.killMe();
+            } 
+            else {
+            }
+            j = i;
           }
         }
       }

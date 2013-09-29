@@ -4,6 +4,10 @@ class Player {
   int currentAnim;
   Gif[] animation;
   PVector velocity;
+  
+  // punkter brukt til hittesting
+  PVector[] hitPoints;
+  
   public Player(PApplet gfx) {
     animation = new Gif[7];
     score = 0;
@@ -11,11 +15,13 @@ class Player {
     this.y = height/2;
     for (int i = 0; i <7; i++) animation[i] = new Gif(gfx, "gifs/player" + Integer.toString(i) + ".gif");
     animation[0].loop();
-    this.size = 100;
+    this.size = 50;
+    
+    hitPoints = generateHitPoints(8);
   }
-  void update(PVector v){
-    x+=v.x;
-    y+=v.y;
+  void update(){
+    x+=velocity.x;
+    y+=velocity.y;
     float easing = 0.05;
     float target = width/2;
     float d = target - x;
@@ -74,7 +80,25 @@ class Player {
       currentAnim = newAnim;
       animation[currentAnim].loop();
     }
-    image(animation[currentAnim], x, y, size, size);
+    image(animation[currentAnim], x, y, size*2, size*2);
+    
+    stroke(0,255,0);
+    strokeWeight(4);
+     for (PVector v:hitPoints){
+       point(v.x+x,v.y+y);
+     }
+    stroke(0,0,0);
+    strokeWeight(1);
+  }
+  
+  PVector[] generateHitPoints(int n){
+    PVector[] h = new PVector[n];
+    float r = TAU/n;
+    for (int i = 0; i < n; i++){
+       h[i] = new PVector(0,size/2);
+       h[i].rotate(r*i);
+    }
+    return h;
   }
 }
 
