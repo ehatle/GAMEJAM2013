@@ -80,7 +80,13 @@ class Map {
     line(mouseX, mouseY, p.x, p.y);
   }
 
-  void spawn(float a, float b) {
+  void spawn() {
+    PVector place = new PVector(0,width/2);
+    place.rotate(random()*TAU);
+    
+    float a = place.x + p.x;
+    float b = place.y + p.y;
+    
     int max = 3;
     int min = 0;
     Random rand = new Random();
