@@ -87,13 +87,18 @@ class Map {
     int randomNum = rand.nextInt((max - min) + 1) + min;
     println(randomNum);
          switch (randomNum) {
-            case 0:  monthString = "April";
+            case 0:  
                      break;
-            case 1:  monthString = "January";
+            case 1:  
+            
+      
                      break;
-            case 2:  monthString = "February";
+            case 2:  
+            
                      break;
-            case 3:  monthString = "March";
+            case 3:  
+            
+            
                      break;
         }
   }
