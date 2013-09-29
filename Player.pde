@@ -37,7 +37,7 @@ class Player {
   }
   void killMe(){
       animation[currentAnim].stop();
-      animation[7].start();
+      animation[7].play();
       image(animation[currentAnim], x, y, size*2, size*2);
   }
   void draw(float r) {

@@ -46,7 +46,7 @@ class Map {
       s.update(velocity.x, velocity.y);
       for (PVector v : p.hitPoints) {
         if (s.hit(v.x+p.x, v.y+p.y, p.size)) {
-          //s.killMe();
+          s.killMe();
           PVector[] points = s.polygonIntersection(p);
           int j = s.vertX.length-1; 
           for (int i = 0;i< s.vertX.length; i++) {
