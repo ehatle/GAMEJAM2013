@@ -18,6 +18,7 @@ public class Trapezoid extends Shape {
     player.score += 10;
     map.toAdd.add(new Triangle(gfx, pos.x + 100, pos.y + 100, player, map,map.animation[0]));
     map.toAdd.add(new Triangle(gfx, pos.x - 100, pos.y - 100, player, map,map.animation[0]));
+    map.toAdd.add(new Triangle(gfx, pos.x + 100, pos.y - 100, player, map,map.animation[0]));
     //map.toAdd.add(new Triangle(gfx, 700, 300, player, map));
     
     return true;
