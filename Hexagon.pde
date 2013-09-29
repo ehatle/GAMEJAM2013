@@ -12,11 +12,13 @@ class Hexagon extends Shape {
     corners[3] = new PVector(size/2, r);
     corners[4] = new PVector(-size/2, r);
     corners[5] = new PVector(-size, 0);
+    
   }
   
   boolean killMe(){
     map.toRemove.add(this);
-    player.score += 10;
+    map.toAdd.add(new Trapezoid(gfx, pos.x + 100, pos.y + 100, player, map,map.animation[2]));
+    map.toAdd.add(new Trapezoid(gfx, pos.x - 100, pos.y - 100, player, map,map.animation[2]));
     return true;
   }
 }
