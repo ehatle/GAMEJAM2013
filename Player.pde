@@ -38,7 +38,7 @@ class Player {
   void killMe(){
       animation[currentAnim].stop();
       animation[7].play();
-      image(animation[currentAnim], x, y, size*2, size*2);
+      currentAnim = 7;
   }
   void draw(float r) {
     int newAnim;
@@ -79,7 +79,7 @@ class Player {
         }
       }
     }
-    if (newAnim != currentAnim) {
+    if (newAnim != currentAnim && currentAnim < 7) {
       animation[currentAnim].stop();
       currentAnim = newAnim;
       animation[currentAnim].loop();

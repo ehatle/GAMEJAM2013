@@ -50,9 +50,11 @@ class Map {
           PVector[] points = s.polygonIntersection(p);
           int j = s.vertX.length-1; 
           for (int i = 0;i< s.vertX.length; i++) {
-            if (s.vertX[i] - p.x < p.size) {
-              if (s.vertY[i] - p.y < p.size) {
+            if (abs(s.vertX[i] - p.x) >0.01) {
+              if (abs(s.vertY[i] - p.y) > 0.01) {
                 p.killMe();
+                shapes = new ArrayList<Shape>();
+                break;
               }
             }
             j = i;
@@ -64,15 +66,12 @@ class Map {
     for (Shape rm : toRemove) {
       shapes.remove(rm);
     }
-
     for (Shape s : shapes) {
       if (!s.disable) {
         s.update(velocity.x, velocity.y);
         s.draw(velocity.x, velocity.y);
       }
     }
-
-
     fill(255);
     text("Score: " + p.score, 10, 36); //viser scoren
     p.draw((velocity.x != 0 || velocity.y != 0) ? velocity.heading() : 10.0);
@@ -85,7 +84,6 @@ class Map {
     int min = 0;
     Random rand = new Random();
     int randomNum = rand.nextInt((max - min) + 1) + min;
-    println(randomNum);
     switch (randomNum) {
     case 0:  
       shapes.add(new Triangle(gfx, a, b, p, this, animation[0]));

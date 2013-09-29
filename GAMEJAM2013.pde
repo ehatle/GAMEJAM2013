@@ -4,22 +4,22 @@ float speedX, speedY;
 Map map;
 PImage startPic;
 PImage bg;
-boolean startGame;
+byte gamePhase;
 
 void setup() {
   size(1280, 720);
   frameRate(50);
   startPic = loadImage("images/start.jpg");
   bg = loadImage("images/bgg.jpg");
-  startGame = false; //skift til false for å teste startskjermen
+  gamePhase = 0; //skift til false for å teste startskjermen
   map = new Map(this);
   textSize(32);
 }
 void draw() {
-  if (!startGame) {
+  if (gamePhase == 0) {
     image(startPic, 0, 0); 
   }
-  else {
+  else if (gamePhase == 1){
     
     map.update(speedX, speedY);   
     background(bg);
@@ -56,7 +56,7 @@ void keyPressed() {
       speedY = 10;
     }
     if (key == ENTER || key == RETURN) {
-      startGame = true;
+      gamePhase = 1;
     }
   }
 }
@@ -74,7 +74,7 @@ void keyReleased() {
     if (keyCode == UP) {
       speedY = 0;
     }
-  } 
+  }
   else {
     if (key == 'a' || key == 'A') {
       speedX = 0;
