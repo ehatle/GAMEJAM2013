@@ -27,6 +27,8 @@ public class Square extends Shape {
 
   boolean killMe() {
     map.toRemove.add(this);
+    map.toAdd.add(new Triangle(gfx, pos.x + 100, pos.y + 100, player, map,map.animation[0]));
+    map.toAdd.add(new Triangle(gfx, pos.x - 100, pos.y - 100, player, map,map.animation[0]));
     return true;
   }
 }
