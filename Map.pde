@@ -16,7 +16,7 @@ class Map {
     toAdd = new ArrayList<Shape>();
     p = new Player(gfx);
     
-    Gif[] animation = new Gif[4];
+    animation = new Gif[4];
     String[] gifPath = {
       "gifs/tria-border.gif", 
       "gifs/rect-modified.gif", 
@@ -33,6 +33,7 @@ class Map {
     shapes.add(new Trapezoid(gfx, 500, 300, p, this, animation[2]));
     shapes.add(new Hexagon(gfx, 800, 300, p, this, animation[3]));
     shapes.add(new Square(gfx, 100, 100, p, this, animation[1]));
+     
   }
   void update(float x, float y) {
     velocity.x = x;
