@@ -1,5 +1,5 @@
 public class Trapezoid extends Shape {
-  Trapezoid(PApplet gfx, float x,float y, Player player, Map map, Gif animation) {
+  Trapezoid(PApplet gfx, float x, float y, Player player, Map map, Gif animation) {
     super(gfx, x, y, player, 4, map, animation);
     float h = sqrt(size*size + (size/2)*(size/2));
     corners[0] = new PVector(-h/2, -h/2);
@@ -10,8 +10,8 @@ public class Trapezoid extends Shape {
 
   boolean killMe() {
     map.toRemove.add(this);
-   // map.toAdd.add(new Triangle(gfx, 500, 300, player, map));
-   // map.toAdd.add(new Triangle(gfx, 600, 300, player, map));
+    map.toAdd.add(new Triangle(gfx, 500, 300, player, map,animation));
+    map.toAdd.add(new Triangle(gfx, 600, 300, player, map,animation));
     //map.toAdd.add(new Triangle(gfx, 700, 300, player, map));
     return true;
   }

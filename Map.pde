@@ -15,7 +15,7 @@ class Map {
     toRemove = new ArrayList<Shape>();
     toAdd = new ArrayList<Shape>();
     p = new Player(gfx);
-
+    
     Gif[] animation = new Gif[4];
     String[] gifPath = {
       "gifs/tria-copy.gif", 

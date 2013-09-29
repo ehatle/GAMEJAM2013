@@ -95,7 +95,7 @@ public abstract class Shape {
     
     float speed = 0.005; // hvor fort vinkelen skal endre seg
     int c = findClosestCorner(playerPos);
-    float angle = PVector.angleBetween(corners[c], PVector.sub(playerPos, new PVector(vertX[c],vertY[c])));
+    float angle = PVector.angleBetween(PVector.sub(playerPos, new PVector(vertX[c],vertY[c])),corners[c]);
     return angle*speed;
   }
 
