@@ -91,7 +91,6 @@ class Map {
       shapes.add(new Triangle(gfx, a, b, p, this, animation[0]));
       break;
     case 1:
-
       shapes.add(new Trapezoid(gfx, a, b, p, this, animation[2]));
       break;
     case 2:  
@@ -99,7 +98,6 @@ class Map {
       break;
     case 3:  
       shapes.add(new Square(gfx, a, b, p, this, animation[1]));
-
       break;
     }
   }
