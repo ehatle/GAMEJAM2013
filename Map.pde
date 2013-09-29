@@ -34,10 +34,6 @@ class Map {
     shapes.add(new Hexagon(gfx, 800, 300, p, this, animation[3]));
     shapes.add(new Square(gfx, 100, 100, p, this, animation[1]));
   }
-  public Map(PApplet gfx, float x, float y) {
-    p = new Player(gfx);
-    shapes = new ArrayList<Shape>();
-  }
   void update(float x, float y) {
     velocity.x = x;
     velocity.y = y;

@@ -1,5 +1,5 @@
 class Player {
-  float x, y;
+  float x, y, size;
   int score;
   int currentAnim;
   Gif[] animation;
@@ -11,6 +11,7 @@ class Player {
     this.y = height/2;
     for (int i = 0; i <7; i++) animation[i] = new Gif(gfx, "gifs/player" + Integer.toString(i) + ".gif");
     animation[0].loop();
+    this.size = 100;
   }
   void update(PVector v){
     x+=v.x;
@@ -71,7 +72,7 @@ class Player {
       currentAnim = newAnim;
       animation[currentAnim].loop();
     }
-    image(animation[currentAnim], x-35, y-35, 70.0, 70.0);
+    image(animation[currentAnim], x, y, size, size);
   }
 }
 
