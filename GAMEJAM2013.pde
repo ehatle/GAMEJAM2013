@@ -15,9 +15,7 @@ void setup() {
 }
 void draw() {
   if (!startGame) {
-
     image(startPic, 0, 0); 
-    println("lol");
   }
   else {
     map.update(speedX, speedY);

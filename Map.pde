@@ -19,9 +19,9 @@ class Map {
     animation = new Gif[4];
     String[] gifPath = {
       "gifs/tria-border.gif", 
-      "gifs/rect-modified.gif", 
-      "gifs/cube-copy.gif", 
-      "gifs/cube-copy.gif"
+      "gifs/diamond.gif", 
+      "gifs/trapezoid.gif", 
+      "gifs/hex.gif"
     };
 
     for (int i= 0; i < 4; i++) {
@@ -50,9 +50,9 @@ class Map {
           int j = s.vertX.length-1; 
           for (int i = 0;i< s.vertX.length; i++) {
             if (s.vertX[i] - p.x < p.size) {
-              if (s.vertY[i] - p.y < p.size)p.killMe();
-            } 
-            else {
+              if (s.vertY[i] - p.y < p.size) {
+                p.killMe();
+              }
             }
             j = i;
           }
@@ -63,9 +63,9 @@ class Map {
     for (Shape rm : toRemove) {
       shapes.remove(rm);
     }
-    
+
     for (Shape s : shapes) {
-      if(!s.disable){
+      if (!s.disable) {
         s.update(velocity.x, velocity.y);
         s.draw(velocity.x, velocity.y);
       }

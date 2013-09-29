@@ -9,12 +9,13 @@ class Player {
   PVector[] hitPoints;
   
   public Player(PApplet gfx) {
-    animation = new Gif[7];
+    animation = new Gif[8];
     score = 0;
     this.x = width/2;
     this.y = height/2;
     for (int i = 0; i <7; i++) animation[i] = new Gif(gfx, "gifs/player" + Integer.toString(i) + ".gif");
     animation[0].loop();
+    animation[7] = new Gif(gfx, "gifs/playerdeath.gif");
     this.size = 50;
     
     hitPoints = generateHitPoints(8);
@@ -35,6 +36,9 @@ class Player {
     }
   }
   void killMe(){
+      animation[currentAnim].stop();
+      animation[7].start();
+      image(animation[currentAnim], x, y, size*2, size*2);
   }
   void draw(float r) {
     int newAnim;
