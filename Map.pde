@@ -18,7 +18,7 @@ class Map {
     
     Gif[] animation = new Gif[4];
     String[] gifPath = {
-      "gifs/tria-copy.gif", 
+      "gifs/tria-border.gif", 
       "gifs/rect.gif", 
       "gifs/cube-copy.gif", 
       "gifs/cube-copy.gif"
