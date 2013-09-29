@@ -1,3 +1,4 @@
+import java.util.Random;
 class Map {
   ArrayList <Shape> shapes;
   ArrayList <Shape> toRemove;
@@ -45,7 +46,7 @@ class Map {
       s.update(velocity.x, velocity.y);
       for (PVector v : p.hitPoints) {
         if (s.hit(v.x+p.x, v.y+p.y, p.size)) {
-          s.killMe();
+          //s.killMe();
           PVector[] points = s.polygonIntersection(p);
           int j = s.vertX.length-1; 
           for (int i = 0;i< s.vertX.length; i++) {
@@ -77,6 +78,30 @@ class Map {
     p.draw((velocity.x != 0 || velocity.y != 0) ? velocity.heading() : 10.0);
     fill(255);
     line(mouseX, mouseY, p.x, p.y);
+  }
+
+  void spawn(float a, float b) {
+    int max = 3;
+    int min = 0;
+    Random rand = new Random();
+    int randomNum = rand.nextInt((max - min) + 1) + min;
+    println(randomNum);
+    switch (randomNum) {
+    case 0:  
+      shapes.add(new Triangle(gfx, a, b, p, this, animation[0]));
+      break;
+    case 1:
+
+      shapes.add(new Trapezoid(gfx, a, b, p, this, animation[2]));
+      break;
+    case 2:  
+      shapes.add(new Hexagon(gfx, a, b, p, this, animation[3]));
+      break;
+    case 3:  
+      shapes.add(new Square(gfx, a, b, p, this, animation[1]));
+
+      break;
+    }
   }
 }
 

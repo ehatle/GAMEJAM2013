@@ -3,12 +3,14 @@ import java.util.ArrayList;
 float speedX, speedY;
 Map map;
 PImage startPic;
+PImage bg;
 boolean startGame;
 
 void setup() {
   size(1280, 720);
   frameRate(50);
   startPic = loadImage("images/start.jpg");
+  bg = loadImage("images/bgg.jpg");
   startGame = false; //skift til false for å teste startskjermen
   map = new Map(this);
   textSize(32);
@@ -18,9 +20,11 @@ void draw() {
     image(startPic, 0, 0); 
   }
   else {
-    map.update(speedX, speedY);
-    background(172);
+    
+    map.update(speedX, speedY);   
+    background(bg);
     map.draw();
+   
   }
 }
 void keyPressed() {
