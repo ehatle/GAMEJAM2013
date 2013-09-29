@@ -23,7 +23,7 @@ class Map {
       "gifs/cube-copy.gif", 
       "gifs/cube-copy.gif"
     };
-
+    
     for (int i= 0; i < 4; i++) {
       println(gifPath[i]);
       animation[i] = new Gif(gfx, gifPath[i]);
