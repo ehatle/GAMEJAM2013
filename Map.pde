@@ -32,17 +32,14 @@ class Map {
       animation[i] = new Gif(gfx, gifPath[i]);
       animation[i].loop();
     }
-    shapes.add(new Triangle(gfx, 200, 300, p, this, animation[0]));
-    shapes.add(new Trapezoid(gfx, 500, 300, p, this, animation[2]));
-    shapes.add(new Hexagon(gfx, 800, 300, p, this, animation[3]));
-    shapes.add(new Square(gfx, 100, 100, p, this, animation[1]));
+    
   }
   void update(float x, float y) {
     velocity.x = x;
     velocity.y = y;
   }
   void draw() {
-    if ((counter%1000)==0){
+    if ((counter%100)==0){
       spawn();
     }
     counter ++;
