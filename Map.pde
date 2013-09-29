@@ -63,8 +63,12 @@ class Map {
     for (Shape rm : toRemove) {
       shapes.remove(rm);
     }
-    for (Shape newShape : toAdd) {
-      shapes.add(newShape);
+    
+    for (Shape s : shapes) {
+      if(!s.disable){
+        s.update(velocity.x, velocity.y);
+        s.draw(velocity.x, velocity.y);
+      }
     }
 
 
