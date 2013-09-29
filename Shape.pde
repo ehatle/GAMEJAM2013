@@ -17,7 +17,7 @@ public abstract class Shape {
   PVector pos; // posisjon til midtpunkt
   PVector velocity; //fart
 
-  float size = 90;
+  float size = 75;
 
   boolean disable = false;
 
@@ -47,19 +47,22 @@ public abstract class Shape {
   }
   public void draw(float x, float y) {
     imageMode(CENTER);
-
     // draw polygon
     beginShape();
     for (int i=0; i<numVertices; i++) {
       vertex(vertX[i], vertY[i]);
     }
     endShape(CLOSE);
+
+    // draw image
     pushMatrix();
     translate(pos.x, pos.y);
     cumulativeTR =  (cumulativeTR + turnRate)%TAU;
     rotate(cumulativeTR);
-    image(animation, 0, 0, size, size);
+    image(animation, 0, -14, size+1, size+1);
     popMatrix();
+
+
 
     // draw cursor
     fill(255);
@@ -203,5 +206,14 @@ public abstract class Shape {
     println("Player score:" + player.score);
     return true;
   }
+  
+  float findr(int n,float a){
+    return 0.5*a*(1.0/tan(PI/n));
+  }
+  float findR(int n,float a){
+    return 0.5*a*(1.0/sin(PI/n));
+  }
+  
+ 
 }
 

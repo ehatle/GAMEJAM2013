@@ -6,6 +6,7 @@ public class Square extends Shape{
    float f = (h/2 + h)/2;
    float g = f - h/2;
    
+   
     corners[0] = new PVector(-f,-h/2);
     corners[1] = new PVector(g,-h/2);
     corners[2] = new PVector(f,h/2);
