@@ -17,7 +17,7 @@ public abstract class Shape {
   PVector pos; // posisjon til midtpunkt
   PVector velocity; //fart
 
-  float size = 100;
+  float size = 90;
 
   boolean disable = false;
 
