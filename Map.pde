@@ -1,3 +1,4 @@
+import java.util.Random;
 class Map {
   ArrayList <Shape> shapes;
   ArrayList <Shape> toRemove;
@@ -39,6 +40,7 @@ class Map {
     velocity.y = y;
   }
   void draw() {
+    spawn();
     p.velocity = velocity;
     p.update();
     for (Shape s : shapes) {
@@ -77,6 +79,14 @@ class Map {
     p.draw((velocity.x != 0 || velocity.y != 0) ? velocity.heading() : 10.0);
     fill(255);
     line(mouseX, mouseY, p.x, p.y);
+  }
+  
+  void spawn(){
+    int max = 3;
+    int min = 0;
+    Random rand = new Random();
+    int randomNum = rand.nextInt((max - min) + 1) + min;
+    println(rand);
   }
 }
 
