@@ -50,6 +50,8 @@ class Map {
     for (Shape newShape : toAdd) {
       shapes.add(newShape);
     }
+    fill(255);
+    text("Score: " + p.score, 10, 36); //viser scoren
     p.update(velocity);
     p.draw((velocity.x != 0 || velocity.y != 0) ? velocity.heading() : 10.0);
     fill(255);
