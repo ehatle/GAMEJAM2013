@@ -196,5 +196,14 @@ public abstract class Shape {
     println("Player score:" + player.score);
     return true;
   }
+  
+  float findr(int n,float a){
+    return 0.5*a*(1.0/tan(PI/n));
+  }
+  float findR(int n,float a){
+    return 0.5*a*(1.0/sin(PI/n));
+  }
+  
+ 
 }
 
