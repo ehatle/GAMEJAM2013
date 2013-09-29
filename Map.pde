@@ -64,9 +64,9 @@ class Map {
     for (Shape rm : toRemove) {
       shapes.remove(rm);
     }
-    
+
     for (Shape s : shapes) {
-      if(!s.disable){
+      if (!s.disable) {
         s.update(velocity.x, velocity.y);
         s.draw(velocity.x, velocity.y);
       }
@@ -79,28 +79,29 @@ class Map {
     fill(255);
     line(mouseX, mouseY, p.x, p.y);
   }
-  
-  void spawn(){
+
+  void spawn(float a, float b) {
     int max = 3;
     int min = 0;
     Random rand = new Random();
     int randomNum = rand.nextInt((max - min) + 1) + min;
     println(randomNum);
-         switch (randomNum) {
-            case 0:  
-                     break;
-            case 1:  
-            
-      
-                     break;
-            case 2:  
-            
-                     break;
-            case 3:  
-            
-            
-                     break;
-        }
+    switch (randomNum) {
+    case 0:  
+      shapes.add(new Triangle(gfx, a, b, p, this, animation[0]));
+      break;
+    case 1:
+
+      shapes.add(new Trapezoid(gfx, a, b, p, this, animation[2]));
+      break;
+    case 2:  
+      shapes.add(new Hexagon(gfx, a, b, p, this, animation[3]));
+      break;
+    case 3:  
+      shapes.add(new Square(gfx, a, b, p, this, animation[1]));
+
+      break;
+    }
   }
 }
 
