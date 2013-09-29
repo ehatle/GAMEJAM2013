@@ -1,6 +1,9 @@
 class Triangle extends Shape {
   public Triangle(PApplet gfx, float x,float y, Player player, Map map, Gif animation) {
     super(gfx, x, y, player, 3, map,animation);
+    
+    gifOffset.set(0,-14);
+    
     float r = findr(3,size);
     float R = findR(3,size);
     corners[0] = new PVector(0, -R);

@@ -18,7 +18,11 @@ public abstract class Shape {
   PVector velocity; //fart
 
   float size = 75;
-
+  // size and offset of gif
+  float gifSize = size;
+  PVector gifOffset = new PVector(0.0,0.0);
+  
+  
   boolean disable = false;
 
   Player player;
@@ -59,7 +63,7 @@ public abstract class Shape {
     translate(pos.x, pos.y);
     cumulativeTR =  (cumulativeTR + turnRate)%TAU;
     rotate(cumulativeTR);
-    image(animation, 0, -14, size+1, size+1);
+    image(animation, 0, 0, gifSize, gifSize);
     popMatrix();
 
     // draw cursor
