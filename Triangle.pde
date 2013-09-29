@@ -3,7 +3,8 @@ class Triangle extends Shape {
     super(gfx, x, y, player, 3, map,animation);
     float h = sqrt(size*size + (size/2)*(size/2));
     float r = findr(3,size);
-    corners[0] = new PVector(0, -r);
+    float R = findR(3,size);
+    corners[0] = new PVector(0, -R);
     corners[1] = new PVector(-size/2, r);
     corners[2] = new PVector(size/2, r);
   }
