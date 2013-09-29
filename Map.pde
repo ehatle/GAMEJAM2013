@@ -11,7 +11,7 @@ class Map {
   //gifPath;
 
   int counter = 0;
-  
+
   public Map(PApplet gfx) {
     velocity = new PVector(0.0, 0.0);
     shapes = new ArrayList<Shape>();
@@ -42,30 +42,35 @@ class Map {
     velocity.y = y;
   }
   void draw() {
-    if ((counter%1000)==0){
+    if ((counter%1000)==0) {
       spawn();
     }
     counter ++;
-    
+
     p.velocity = velocity;
     p.update();
     for (Shape s : shapes) {
       s.update(velocity.x, velocity.y);
       for (PVector v : p.hitPoints) {
         if (s.hit(v.x+p.x, v.y+p.y, p.size)) {
+          p.killMe();
+          shapes = new ArrayList<Shape>();
+          break;
+          /*
           s.killMe();
-          PVector[] points = s.polygonIntersection(p);
-          int j = s.vertX.length-1; 
-          for (int i = 0;i< s.vertX.length; i++) {
-            if (abs(s.vertX[i] - p.x) == 0) {
-              if (abs(s.vertY[i] - p.y) == 0) {
-                p.killMe();
-                shapes = new ArrayList<Shape>();
-                break;
-              }
-            }
-            j = i;
-          }
+           PVector[] points = s.polygonIntersection(p);
+           int j = s.vertX.length-1; 
+           for (int i = 0;i< s.vertX.length; i++) {
+           if (abs(s.vertX[i] - p.x) == 0) {
+           if (abs(s.vertY[i] - p.y) == 0) {
+           p.killMe();
+           shapes = new ArrayList<Shape>();
+           break;
+           }
+           }
+           j = i;
+           }
+           */
         }
       }
       s.draw(velocity.x, velocity.y);
@@ -87,12 +92,12 @@ class Map {
   }
 
   void spawn() {
-    PVector place = new PVector(0,width/2);
+    PVector place = new PVector(0, width/2);
     place.rotate(random(1.0)*TAU);
-    
+
     float a = place.x + p.x;
     float b = place.y + p.y;
-    
+
     int max = 3;
     int min = 0;
     Random rand = new Random();

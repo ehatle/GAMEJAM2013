@@ -20,11 +20,13 @@ void draw() {
     image(startPic, 0, 0);
   }
   else if (gamePhase == 1){
-    
     map.update(speedX, speedY);   
     background(bg);
     map.draw();
-   
+  }
+  else {
+    background(bg);
+    map.draw();
   }
 }
 void keyPressed() {
