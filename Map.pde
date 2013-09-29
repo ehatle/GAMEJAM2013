@@ -49,8 +49,10 @@ class Map {
     }
     
     for (Shape s : shapes) {
-      s.update(velocity.x, velocity.y);
-      s.draw(velocity.x, velocity.y);
+      if(!s.disable){
+        s.update(velocity.x, velocity.y);
+        s.draw(velocity.x, velocity.y);
+      }
     }
 
 
