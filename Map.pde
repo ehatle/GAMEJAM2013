@@ -10,6 +10,8 @@ class Map {
   Gif[] animation;
   //gifPath;
 
+  int counter = 0;
+  
   public Map(PApplet gfx) {
     velocity = new PVector(0.0, 0.0);
     shapes = new ArrayList<Shape>();
@@ -40,6 +42,11 @@ class Map {
     velocity.y = y;
   }
   void draw() {
+    if ((counter%1000)==0){
+      spawn();
+    }
+    counter ++;
+    
     p.velocity = velocity;
     p.update();
     for (Shape s : shapes) {
@@ -82,7 +89,7 @@ class Map {
 
   void spawn() {
     PVector place = new PVector(0,width/2);
-    place.rotate(random()*TAU);
+    place.rotate(random(1.0)*TAU);
     
     float a = place.x + p.x;
     float b = place.y + p.y;
@@ -92,6 +99,7 @@ class Map {
     Random rand = new Random();
     int randomNum = rand.nextInt((max - min) + 1) + min;
     println(randomNum);
+    
     switch (randomNum) {
     case 0:  
       shapes.add(new Triangle(gfx, a, b, p, this, animation[0]));
