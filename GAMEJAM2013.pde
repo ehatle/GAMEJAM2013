@@ -17,7 +17,7 @@ void setup() {
 }
 void draw() {
   if (gamePhase == 0) {
-    image(startPic, 0, 0); 
+    image(startPic, 0, 0);
   }
   else if (gamePhase == 1){
     

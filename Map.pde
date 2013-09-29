@@ -57,8 +57,8 @@ class Map {
           PVector[] points = s.polygonIntersection(p);
           int j = s.vertX.length-1; 
           for (int i = 0;i< s.vertX.length; i++) {
-            if (abs(s.vertX[i] - p.x) >0.01) {
-              if (abs(s.vertY[i] - p.y) > 0.01) {
+            if (abs(s.vertX[i] - p.x) == 0) {
+              if (abs(s.vertY[i] - p.y) == 0) {
                 p.killMe();
                 shapes = new ArrayList<Shape>();
                 break;
