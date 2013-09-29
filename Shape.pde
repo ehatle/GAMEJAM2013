@@ -20,9 +20,9 @@ public abstract class Shape {
   float size = 75;
   // size and offset of gif
   float gifSize = size;
-  PVector gifOffset = new PVector(0.0,0.0);
-  
-  
+  PVector gifOffset = new PVector(0.0, 0.0);
+
+
   boolean disable = false;
 
   Player player;
@@ -87,12 +87,14 @@ public abstract class Shape {
       vertY[i] = v.y;
     }
     // if hit, change the fill color for the polygon
-    if (hit(numVertices, vertX, vertY, player.x, player.y, player.size)) {
-      fill(255);
-      if (!disable) disable = this.killMe() ? true : false;
-    }
-    else {
-      fill(255, 0, 0);
+    for (PVector v: player.hitPoints) {
+      if (hit(numVertices, vertX, vertY, v.x+player.x, v.y+player.y, player.size)) {
+        fill(255);
+        if (!disable) disable = this.killMe() ? true : false;
+      }
+      else {
+        fill(255, 0, 0);
+      }
     }
   }
   // finner vinkel som må rotere for å nå player
@@ -179,13 +181,13 @@ public abstract class Shape {
   }
   /*
     Uses player
-    calculates all line intersection between the player and a shape
-  */
+   calculates all line intersection between the player and a shape
+   */
   PVector[] polygonIntersection(Player p) {
     PVector [] points = new PVector[corners.length];
     for (int i = 0; i< corners.length; i++) {
       int j = (i+1>=corners.length) ? 0 : i+1;
-      points[i] = lineIntersection(corners[i].x, corners[i].x, corners[j].x, corners[j].x, (p.x-p.velocity.x),p.y-p.velocity.y,p.x+p.velocity.x,p.y-p.velocity.y);
+      points[i] = lineIntersection(corners[i].x, corners[i].x, corners[j].x, corners[j].x, (p.x-p.velocity.x), p.y-p.velocity.y, p.x+p.velocity.x, p.y-p.velocity.y);
     }
     return points;
   }
@@ -207,14 +209,12 @@ public abstract class Shape {
     println("Player score:" + player.score);
     return true;
   }
-  
-  float findr(int n,float a){
+
+  float findr(int n, float a) {
     return 0.5*a*(1.0/tan(PI/n));
   }
-  float findR(int n,float a){
+  float findR(int n, float a) {
     return 0.5*a*(1.0/sin(PI/n));
   }
-  
- 
 }
 
