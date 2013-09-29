@@ -65,10 +65,6 @@ public abstract class Shape {
     rotate(cumulativeTR);
     image(animation, gifOffset.x, gifOffset.y, gifSize, gifSize);
     popMatrix();
-
-    // draw cursor
-    fill(255);
-    ellipse(mouseX, mouseY, 30, 30);
   }
 
   public void update(float x, float y) {

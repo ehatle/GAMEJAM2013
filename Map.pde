@@ -84,8 +84,6 @@ class Map {
     fill(255);
     text("Score: " + p.score, 10, 36); //viser scoren
     p.draw((velocity.x != 0 || velocity.y != 0) ? velocity.heading() : 10.0);
-    fill(255);
-    line(mouseX, mouseY, p.x, p.y);
   }
 
   void spawn() {

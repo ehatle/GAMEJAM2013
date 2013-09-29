@@ -85,14 +85,14 @@ class Player {
       animation[currentAnim].loop();
     }
     image(animation[currentAnim], x, y, size*2, size*2);
-    
+    /*
     stroke(0,255,0);
     strokeWeight(4);
      for (PVector v:hitPoints){
        point(v.x+x,v.y+y);
      }
     stroke(0,0,0);
-    strokeWeight(1);
+    strokeWeight(1);*/
   }
   
   PVector[] generateHitPoints(int n){
