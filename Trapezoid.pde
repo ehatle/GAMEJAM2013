@@ -6,12 +6,6 @@ public class Trapezoid extends Shape {
     float r = findr(6,size);
     float R = findR(6,size);
     
-   /* corners[0] = new PVector(-h/2, -h/2);
-    corners[1] = new PVector(h/2, -h/2);
-    corners[3] = new PVector(-size, h/2);
-    corners[2] = new PVector(size, h/2);
-    */
-    
     corners[0] = new PVector(-size/2, -r + (h/4));
     corners[1] = new PVector(size/2, -r + (h/4));
     corners[2] = new PVector(size, 0 + (h/4) );

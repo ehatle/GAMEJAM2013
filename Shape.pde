@@ -193,11 +193,10 @@ public abstract class Shape {
     if (denominator == 0) return null;
     //returns null if the lines are parallell
 
-      PVector point = new PVector(
-    //first/denominator, second/denominator
+      return new PVector(
     ((x1 * y2 - y1 * x2) * (x3 - x4) - ((x1 - x2) * (x3 * x4 - y3 * x4)))/denominator, ((x1*x2 - y1*x2) - ((y1-y2)*(x3*y4-y3*x4)))/denominator
       );
-    return point;
+    //return point;
   }
 
   boolean killMe() {

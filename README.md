@@ -3,17 +3,23 @@ Our contribution to the 2013 GameJam competition at Åpen Sone, 2013
 
 ##TODO
 
-- Animation engine  
 - Graphics  
- - Triangle  
+ - ~~Triangle~~  
  - Square  
  - Trapezoid  
  - Hectagon  
  - Star
-- ~Hit-detection~  
+- Animation engine  
+ - Fit all animations on the shapes  
+   - Triangle  
+   - Square  
+   - Trapezoid  
+- ~~Hit-detection~~  
 - Collision handling
 - map handler  
- - move the map around instead of the ball  
+ - ~~move the map around instead of the ball~~
+ - ~~Easing~~  
+- ~~Line intersection~~
 
 
 ##Libraries
