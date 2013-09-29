@@ -11,6 +11,8 @@ public class Square extends Shape {
      corners[2] = new PVector(f,h/2);
      corners[3] = new PVector(-g/2,h/2);
      */
+    float r = findr(6,size);
+    float R = findR(6,size);
     corners[0] = new PVector(-size/2, -r);
     corners[1] = new PVector(size/2, -r);
     corners[2] = new PVector(0, 0);
