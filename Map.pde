@@ -40,7 +40,6 @@ class Map {
     velocity.y = y;
   }
   void draw() {
-    spawn();
     p.velocity = velocity;
     p.update();
     for (Shape s : shapes) {
@@ -87,6 +86,16 @@ class Map {
     Random rand = new Random();
     int randomNum = rand.nextInt((max - min) + 1) + min;
     println(randomNum);
+         switch (randomNum) {
+            case 0:  monthString = "April";
+                     break;
+            case 1:  monthString = "January";
+                     break;
+            case 2:  monthString = "February";
+                     break;
+            case 3:  monthString = "March";
+                     break;
+        }
   }
 }
 
