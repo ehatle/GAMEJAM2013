@@ -7,6 +7,7 @@ void setup() {
   size(800, 600);
   frameRate(50);
   map = new Map(this);
+  textSize(36);
 }
 void draw() {
   map.update(speedX, speedY);
