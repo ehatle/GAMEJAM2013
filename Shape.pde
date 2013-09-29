@@ -63,7 +63,7 @@ public abstract class Shape {
     translate(pos.x, pos.y);
     cumulativeTR =  (cumulativeTR + turnRate)%TAU;
     rotate(cumulativeTR);
-    image(animation, 0, 0, gifSize, gifSize);
+    image(animation, gifOffset.x, gifOffset.y, gifSize, gifSize);
     popMatrix();
 
     // draw cursor

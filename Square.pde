@@ -1,7 +1,7 @@
 public class Square extends Shape {
   Square(PApplet gfx, float x, float y, Player player, Map map, Gif animation) {
     super(gfx, x, y, player, 4, map, animation);
-    gifSize = size*(3.0/2.0);
+    gifSize = size*(3.0/2.0) + 7;
     float h = sqrt(size*size + (size/2)*(size/2));
     float f = (h/2 + h)/2;
     float g = f - h/2;
